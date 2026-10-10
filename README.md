@@ -30,9 +30,9 @@ Este repositorio contiene **solo el frontend web**. El backend (API REST) está 
 
 | Repo | Descripción | Enlace |
 |------|-------------|--------|
-| **Lookeo-Móvil** | App móvil | [Enlace](https://github.com/TheYinYan/Lookeo-Movil) |
-| **Lookeo-Web** | App web (este repo) | [Enlace](https://github.com/TheYinYan/Lookeo-Web) |
-| **Lookeo-Backend** | API REST en Java + Spring Boot | [Enlace](https://github.com/TheYinYan/Lookeo-Backend) |
+| **Principal** | Descripción del proyecto | [Enlace](https://github.com/TheYinYan/Proyecto_Intermodular) |
+| **Lookeo-Móvil** | App móvil (este repo) | [Enlace](https://github.com/TheYinYan/Lookeo-Movil) |
+| **Lookeo-Web** | App web | [Enlace](https://github.com/TheYinYan/Lookeo-Web) |
 
 ---
 

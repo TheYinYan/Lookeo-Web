@@ -1,59 +1,98 @@
-# LookeoWeb
+# 🌐 Lookeo — App Web
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.27.
+> Repositorio del cliente web de **Lookeo**, la app de armario virtual con probador IA.
 
-## Development server
+---
 
-To start a local development server, run:
+## 👥 Equipo
+
+| Nombre   | Rol               | GitHub |
+|----------|-------------------|--------|
+| Samuel   | Desarrollador     | [@TheYinYan](https://github.com/TheYinYan) |
+| Mari Paz | Desarrolladora    | [@mpjmar](https://github.com/mpjmar)       |
+
+---
+
+## 🎯 Objetivo
+
+Desarrollar la **versión web** de Lookeo: una aplicación de escritorio donde el usuario:
+- Sube fotos de su ropa.
+- Etiqueta cada prenda (tipo, color, temporada, ocasión).
+- Recibe combinaciones de conjuntos sugeridas.
+- Se prueba la ropa virtualmente con IA.
+- Guarda sus outfits favoritos.
+
+Este repositorio contiene **solo el frontend web**. El backend (API REST) está en su propio repositorio.
+
+---
+
+## 🧩 Repositorios del proyecto
+
+| Repo | Descripción | Enlace |
+|------|-------------|--------|
+| **Lookeo-Móvil** | App móvil | [Enlace](https://github.com/TheYinYan/Lookeo-Movil) |
+| **Lookeo-Web** | App web (este repo) | [Enlace](https://github.com/TheYinYan/Lookeo-Web) |
+| **Lookeo-Backend** | API REST en Java + Spring Boot | [Enlace](https://github.com/TheYinYan/Lookeo-Backend) |
+
+---
+
+## 🎨 Diseño
+
+### Paleta de colores
+- **Negro** (#000000) → fondo principal.
+- **Dorado** (#D4AF37) → acentos, botones, logo.
+- **Blanco** (#FFFFFF) → textos y elementos secundarios.
+
+### Estilos de moda
+- **Old Money / Elegante clásico**
+- **Streetwear de lujo**
+- **Minimalista / Clean**
+
+### Enlaces de diseño
+- 🎨 **[Ver diseño en Figma](https://www.figma.com/make/5IA4TMbDYNLwBl9n0uEql9/Lookeo-Virtual-Wardrobe-App?code-node-id=0-6&p=f&t=YLhPeV0QwY9BWW3k-0&fullscreen=1)**
+- 📁 **Explicación detallada del Proyecto** → [Repositorio Principal](https://github.com/TheYinYan/Proyecto_Intermodular)
+- 🎨 **Ver Explicación y Primeros pasos del diseño** → [Pagina Diesño](https://github.com/TheYinYan/Proyecto_Intermodular/blob/main/page/Diseño.md)
+
+---
+
+## 🌐 Pantallas
+
+| Pantalla | Descripción |
+|----------|-------------|
+| **Login** | Usuario, contraseña, botón "Iniciar Sesión". |
+| **Inicio** | Conjunto del día, descripción, rejilla de prendas. |
+| **Crear prenda** | Formulario completo con subida de foto. |
+| **Ropero** | Listado de prendas con filtros y rejilla amplia. |
+| **Probador IA** | Subir foto, seleccionar prendas, generar imagen. |
+| **Outfits** | Conjuntos guardados. |
+
+---
+
+## 🛠️ Tecnologías
+
+- **Framework:** Angular 17+.
+- **Lenguaje:** TypeScript.
+- **Estilos:** CSS / SCSS.
+- **Comunicación con backend:** HttpClient de Angular.
+- **Estado:** Servicios + RxJS.
+
+---
+
+<!-- ## 🚀 Cómo ejecutar el proyecto
+
+### Requisitos previos
+- Node.js 18+
+- Angular CLI: `npm install -g @angular/cli`
+
+### Instalación
 
 ```bash
-ng serve
-```
+# Clonar el repositorio
+git clone https://github.com/TheYinYan/Lookeo-Web.git
+cd Lookeo-Web
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+# Instalar dependencias
+npm install
 
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+# Arrancar en modo desarrollo
+ng serve -->

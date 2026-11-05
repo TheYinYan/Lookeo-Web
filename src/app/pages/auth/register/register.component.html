@@ -1,1 +1,92 @@
-<p>register works!</p>
+<h1>Tu estilo empieza aquí.</h1>
+
+<form
+  #gameForm="ngForm"
+  (ngSubmit)="onRegister()">
+
+  <div class="name-from">
+    <label for="nameId">Nombre: </label>
+    <input
+      [class.invalid-control]="name.invalid && (name.dirty || name.touched)"
+      id="nameId"
+      type="text"
+      placeholder="Añade un Nombre valido"
+      name="name"
+      [(ngModel)]="user.name"
+      required
+      minlength="3"
+      maxlength="40"
+      #name="ngModel">
+
+    @if (name.invalid && (name.dirty || name.touched)) {
+
+      @if (name.errors?.['required']) {
+        <p class="alerta">El nombre es obligatorio.</p>
+      }
+
+      @if (name.errors?.['minlength']) {
+        <p class="alerta">El nombre debe tener al menos 3 caracteres.</p>
+      }
+    }
+  </div>
+
+<div class="email-from">
+    <label for="emailId">Correo Electrónico: </label>
+    <input
+      [class.invalid-control]="email.invalid && (email.dirty || email.touched)"
+      id="emailId"
+      type="email"
+      placeholder="Añade un Correo Electrónico valido"
+      name="email"
+      [(ngModel)]="user.email"
+      required
+      minlength="3"
+      maxlength="40"
+      email
+      #email="ngModel">
+
+    @if (email.invalid && (email.dirty || email.touched)) {
+        @if (email.errors?.['required']) {
+            <p class="alerta">El correo electrónico es obligatorio.</p>
+        }
+        @if (email.errors?.['email']) {
+            <p class="alerta">Introduce un correo electrónico válido (ej: nombre&#64;dominio.com).</p>
+        }
+        @if (email.errors?.['minlength']) {
+            <p class="alerta">El correo electrónico debe tener al menos 3 caracteres.</p>
+        }
+    }
+  </div>
+
+  <div class="password-from">
+    <label for="passwordId">Contraseña: </label>
+    <input
+      [class.invalid-control]="password.invalid && (password.dirty || password.touched)"
+      id="passwordId"
+      type="password"
+      placeholder="Añade una Contraseña valida"
+      name="password"
+      [(ngModel)]="user.password"
+      required
+      minlength="6"
+      maxlength="100"
+      #password="ngModel">
+
+    @if (password.invalid && (password.dirty || password.touched)) {
+
+      @if (password.errors?.['required']) {
+        <p class="alerta">La contraseña es obligatoria.</p>
+      }
+
+      @if (password.errors?.['minlength']) {
+        <p class="alerta">La contraseña debe tener al menos 6 caracteres.</p>
+      }
+    }
+  </div>
+
+  <button [disabled]="gameForm.invalid">Crear cuenta</button>
+
+  <p>Válido: {{ gameForm.valid }}</p>
+  <p>Modificado: {{ gameForm.dirty }}</p>
+
+</form>

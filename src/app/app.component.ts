@@ -15,5 +15,8 @@ export class AppComponent {
   isLogged = false;
   isRegister = false;
 
-
+  onRegistered(event: boolean) { 
+    this.isRegister = event;
+    this.isLogged = event;
+  }
 }

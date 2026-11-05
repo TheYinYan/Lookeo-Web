@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, output } from '@angular/core';
 import { FormsModule , NgModel } from '@angular/forms';
 import { Users } from '../../../models/users';
 
@@ -10,6 +10,8 @@ import { Users } from '../../../models/users';
 })
 export class RegisterComponent {
   
+  registre = output<boolean>();
+
   user: Users = {
     name: '',
     email: '',
@@ -18,5 +20,6 @@ export class RegisterComponent {
 
   onRegister() {
     console.log(this.user)
+    this.registre.emit(true); 
   }
 }

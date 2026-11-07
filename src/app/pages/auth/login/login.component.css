@@ -1,0 +1,175 @@
+*{
+   color: white;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 20px;
+  padding-top: 20px;
+}
+
+header .logo {
+  width: 85px;       
+  height: 85px;      
+  object-fit: contain; 
+  display: block;
+  margin: 0 auto 15px auto;
+}
+
+.input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 5px;
+}
+
+.input-wrapper input {
+  width: 100%;
+  padding: 12px 40px 12px 40px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+.icono {
+  position: absolute;
+  left: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icono img {
+  width: 20px;
+  height: 20px;
+  opacity: 0.6;
+}
+
+.eye {
+  position: absolute;
+  right: 12px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.eye img {
+  width: 20px;
+  height: 20px;
+  opacity: 0.7;
+}
+
+form {
+  max-width: 500px;
+  margin: 20px auto;
+  font-family: sans-serif;
+}
+
+.name-from, .password-from {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.button-container{
+    padding-top: 10px;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #ffc107;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.bottom-text {
+  display: block;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.terms-wrapper {
+  margin-top: 15px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  font-size: 13px;
+  color: #aaa;
+  gap: 10px; 
+}
+
+.checkbox-label input[type="checkbox"] {
+  accent-color: #e5b856;
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+
+.terms-text a {
+  color: #e5b856;
+  text-decoration: none;
+}
+
+.btn {
+  width: 100%;
+  padding: 14px;
+  background-color: #e5b856;
+  color: #000;
+  border: none;
+  border-radius: 6px;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.btn:hover:not(:disabled) {
+  background-color: #fce28b;
+}
+
+.btn:disabled {
+  background-color: #333;
+  color: #666;
+  cursor: not-allowed;
+}
+
+.login-link {
+  font-size: 13px;
+  color: #888;
+  text-align: center;
+  margin-top: 25px;
+}
+
+.login-link a {
+  color: #e5b856;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.forgot-link{
+    font-size: 13px;
+    color: #e5b856;
+    text-align: center;
+    margin-top: 25px;
+}

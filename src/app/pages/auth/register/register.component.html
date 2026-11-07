@@ -5,7 +5,7 @@
 </header>
 
 <form
-  #gameForm="ngForm"
+  #registerForm="ngForm"
   (ngSubmit)="onRegister()">
 
   <div class="name-from">
@@ -130,7 +130,7 @@
   </label>
 </div>
 
-<button class="btn" type="submit" [disabled]="gameForm.invalid || user.password !== confirmPassword || !termsAccepted">
+<button class="btn" type="submit" [disabled]="registerForm.invalid || user.password !== confirmPassword || !termsAccepted">
   Crear cuenta 
 </button>
         

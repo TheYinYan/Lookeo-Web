@@ -1,6 +1,6 @@
 import { Component, output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { CommonModule } from '@angular/common'; // 👈 Necesario para [ngClass]
+import { CommonModule } from '@angular/common';
 import { Users } from '../../../models/users';
 
 @Component({
@@ -13,6 +13,7 @@ import { Users } from '../../../models/users';
 export class RegisterComponent {
 
   registre = output<boolean>();
+  goLogin = output<boolean>();
   confirmPassword = '';
   showPassword: boolean = false;
   showConfirmPassword: boolean = false;
@@ -28,4 +29,4 @@ export class RegisterComponent {
     console.log('Datos a enviar a la API:', this.user);
     this.registre.emit(true);
   }
-}
+} 

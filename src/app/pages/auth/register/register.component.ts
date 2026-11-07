@@ -1,25 +1,30 @@
 import { Component, output } from '@angular/core';
-import { FormsModule , NgModel } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common'; // 👈 Necesario para [ngClass]
 import { Users } from '../../../models/users';
 
 @Component({
   selector: 'app-register',
-  imports: [FormsModule],
+  standalone: true,
+  imports: [FormsModule, CommonModule],
   templateUrl: './register.component.html',
   styleUrl: './register.component.css'
 })
 export class RegisterComponent {
-  
+
   registre = output<boolean>();
+  confirmPassword = '';
+  showPassword: boolean = false;
+  showConfirmPassword: boolean = false;
 
   user: Users = {
     name: '',
     email: '',
-    password: '',
+    password: ''
   };
 
   onRegister() {
-    console.log(this.user)
-    this.registre.emit(true); 
+    console.log('Datos a enviar a la API:', this.user);
+    this.registre.emit(true);
   }
 }

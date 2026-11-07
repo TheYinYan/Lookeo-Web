@@ -1,17 +1,22 @@
-<h1>Tu estilo empieza aquí.</h1>
+<header>
+  <span class="top-text">BIENVENIDO A LOOKEO</span>
+  <h1 class="titulo">Tu estilo empieza aquí.</h1>
+  <span class="bottom-text">Crea tu cuenta y empieza a explorar.</span>
+</header>
 
 <form
   #gameForm="ngForm"
   (ngSubmit)="onRegister()">
 
   <div class="name-from">
-    <label for="nameId">Nombre: </label>
+    <label for="nameId">Nombre de usuario: </label>
     <div class="input-wrapper">
+      <span class="icono"><img src="assets/user.png" alt="Usuario"></span>
       <input
         [class.invalid-control]="name.invalid && (name.dirty || name.touched)"
         id="nameId"
         type="text"
-        placeholder="Intruduce tu Nombre"
+        placeholder="¿Cómo te llamas?"
         name="name"
         [(ngModel)]="user.name"
         required
@@ -28,11 +33,12 @@
   <div class="email-from">
     <label for="emailId">Correo Electrónico: </label>
     <div class="input-wrapper">
+      <span class="icono"><img src="assets/email.png" alt="Correo"></span>
       <input
       [class.invalid-control]="email.invalid && (email.dirty || email.touched)"
       id="emailId"
       type="email"
-      placeholder="Intruduce tu Correo Electrónico"
+      placeholder="tu@correo.com"
       name="email"
       [(ngModel)]="user.email"
       required
@@ -49,11 +55,12 @@
   <div class="password-from">
     <label for="passwordId">Contraseña: </label>
     <div class="input-wrapper">
+      <span class="icono"><img src="assets/lock.png" alt="Contraseña"></span>
       <input
         [class.invalid-control]="password.invalid && (password.dirty || password.touched)"
         id="passwordId"
         [type]="showPassword ? 'text' : 'password'"
-        placeholder="Añade una Contraseña"
+        placeholder="Crea una contraseña"
         name="password"
         [(ngModel)]="user.password"
         required
@@ -82,6 +89,7 @@
   <label for="confirmPasswordId">Confirmar contraseña: </label>
   
   <div class="input-wrapper">
+    <span class="icono"><img src="assets/lock.png" alt="Confirmar contraseña"></span>
     <input
       [class.invalid-control]="confirmPasswordInput.invalid && (confirmPasswordInput.dirty || confirmPasswordInput.touched)"
       id="confirmPasswordId"
@@ -112,6 +120,22 @@
   }
 </div>
 
-<button [disabled]="gameForm.invalid || user.password !== confirmPassword" (click)="this.onRegister()">Crear cuenta</button>
+<div class="terms-wrapper">
+  <label class="checkbox-label">
+    <input type="checkbox" name="terms" [(ngModel)]="termsAccepted" required>
+    <span class="custom-checkbox"></span>
+    <span class="terms-text">
+      Acepto los <a href="#">términos y condiciones</a> y la <a href="#">Política de privacidad</a>
+    </span>
+  </label>
+</div>
+
+<button class="btn" type="submit" [disabled]="gameForm.invalid || user.password !== confirmPassword || !termsAccepted">
+  Crear cuenta 
+</button>
+        
+<div class="login-link">
+  ¿Ya tienes cuenta? <a href="/login">Inicia sesión</a>
+</div>
 
 </form>

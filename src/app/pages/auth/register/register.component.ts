@@ -16,6 +16,7 @@ export class RegisterComponent {
   confirmPassword = '';
   showPassword: boolean = false;
   showConfirmPassword: boolean = false;
+  termsAccepted: boolean = false;
 
   user: Users = {
     name: '',

@@ -18,4 +18,12 @@ export class AppComponent {
   onRegistered(event: boolean) { 
     this.isRegister = event;
   }
+
+  onLogin(event: boolean) {
+    this.isLogged = event;
+  }
+
+  onGoRegister() {
+    this.isRegister = false;
+  }
 }

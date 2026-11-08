@@ -11,6 +11,12 @@
       "email": "samuelruiz@gmail.com",
       "password": "2412007SRM",
       "id": "FJuVP2xoCbo"
+    },
+    {
+      "name": "Pepe",
+      "email": "sruimar2412@g.educaand.es",
+      "password": "12345678L",
+      "id": "c70Lyi0LjLA"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

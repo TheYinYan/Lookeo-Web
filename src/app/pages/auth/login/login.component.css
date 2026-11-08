@@ -82,7 +82,7 @@ form {
   font-family: sans-serif;
 }
 
-.name-from, .password-from {
+.name-from, .email-from, .password-from {
   margin-bottom: 15px;
 }
 

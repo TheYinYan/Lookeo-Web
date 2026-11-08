@@ -8,17 +8,18 @@ import { UsersService } from '../../../services/users.service';
   selector: 'app-login',
   imports: [FormsModule, CommonModule],
   templateUrl: './login.component.html',
-  styleUrl: './login.component.css'
+  styleUrl: './login.component.css',
 })
 export class LoginComponent {
-
   login = output<boolean>();
   goRegister = output<boolean>();
 
   showPassword: boolean = false;
   rememberMe: boolean = false;
+  credentialValid: boolean = true;
+  userExists: boolean = true;
 
-  constructor(private usersService: UsersService) { }
+  constructor(private usersService: UsersService) {}
 
   user: Users = {
     name: '',
@@ -26,14 +27,16 @@ export class LoginComponent {
     password: ''
   };
 
-  onLogin(name: string, password: string) {
-    this.usersService.getUsers(name).subscribe((users: Users[]) => {
-      if (name == users[0]?.name && password == users[0]?.password) {
-        console.log('Usuario válido:', users[0]);
-        this.login.emit(true);
-      } else {
-        console.error('Credenciales inválidas');
-      }
+  onLogin(name: string, email: string, password: string) {
+    this.usersService.getUsers(name,email).subscribe({
+      next: (users: Users[]) => {
+        if (users.length === 0) this.userExists = false;
+        else if (email == users[0]?.email && password == users[0]?.password) {
+          this.userExists = true;
+          this.credentialValid = true;
+          this.login.emit(true);
+        } else this.credentialValid = false, this.userExists = true;
+      },
     });
   }
 

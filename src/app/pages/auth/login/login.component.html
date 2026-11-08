@@ -63,9 +63,9 @@
   </div>
 
   @if (!this.userExists) {
-    <p class="alerta">El usuario no existe.</p>
+    <span class="alerta">El usuario no existe.</span>
   } @else if  (!this.credentialValid) {
-    <p class="alerta">Credenciales inválidas. Por favor, verifica tu usuario y contraseña.</p>
+    <span class="alerta">Credenciales inválidas. Por favor, verifica tu usuario y contraseña.</span>
   }
 
   <button class="btn" type="submit" [disabled]="loginForm.invalid">

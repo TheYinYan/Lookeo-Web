@@ -11,13 +11,18 @@
     <div class="input-wrapper">
       <span class="icono"><img src="assets/user.png" alt="Usuario"></span>
       <input
+        [class.invalid-control]="name.invalid && (name.dirty || name.touched)"
         id="nameId"
         type="text"
         placeholder="¿Cómo te llamas?"
         name="name"
         [(ngModel)]="user.name"
-        required>
+        required
+        #name="ngModel">
     </div>
+    @if (name.invalid && (name.dirty || name.touched)) {
+      @if (name.errors?.['required']) { <p class="alerta">El nombre es obligatorio.</p> }
+    }
   </div>
 
   <div class="password-from">
@@ -25,13 +30,15 @@
     <div class="input-wrapper">
       <span class="icono"><img src="assets/lock.png" alt="Contraseña"></span>
       <input
+        [class.invalid-control]="password.invalid && (password.dirty || password.touched)"
         id="passwordId"
         [type]="showPassword ? 'text' : 'password'"
         placeholder="Escribe tu contraseña"
         name="password"
         [(ngModel)]="user.password"
-        required>
-      
+        required
+        #password = "ngModel">
+
       <span class="eye" (click)="showPassword = !showPassword">
         @if (showPassword) {
           <img src="assets/ojo-cerrado.png" alt="Ocultar">
@@ -40,6 +47,9 @@
         }
       </span>
     </div>
+    @if (password.invalid && (password.dirty || password.touched)) {
+      @if (password.errors?.['required']) { <p class="alerta">La contraseña es obligatoria.</p> }
+    }
   </div>
 
   <div class="terms-wrapper" style="display: flex; justify-content: space-between; align-items: center; margin-top: 15px;">
@@ -51,9 +61,9 @@
   </div>
 
   <button class="btn" type="submit" [disabled]="loginForm.invalid">
-    Iniciar Sesión 
+    Iniciar Sesión
   </button>
-          
+
   <div class="login-link">
     ¿Aún no tienes cuenta? <a (click)="onGoRegister()" style="cursor: pointer;">Crear cuenta</a>
   </div>

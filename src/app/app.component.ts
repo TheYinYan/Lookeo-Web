@@ -26,4 +26,8 @@ export class AppComponent {
   onGoRegister() {
     this.isRegister = false;
   }
+
+  onGoLogin(){
+    this.isRegister = true;
+  }
 }

@@ -4,7 +4,7 @@
   <span class="bottom-text">Tu próximo conjunto empieza aquí.</span>
 </header>
 
-<form #loginForm="ngForm" (ngSubmit)="onLogin()">
+<form #loginForm="ngForm" (ngSubmit)="onLogin(user.name, user.password)">
 
   <div class="name-from">
     <label for="nameId">Usuario: </label>

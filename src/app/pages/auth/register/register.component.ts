@@ -14,6 +14,7 @@ export class RegisterComponent {
 
   registre = output<boolean>();
   goLogin = output<boolean>();
+
   confirmPassword = '';
   showPassword: boolean = false;
   showConfirmPassword: boolean = false;
@@ -28,5 +29,9 @@ export class RegisterComponent {
   onRegister() {
     console.log('Datos a enviar a la API:', this.user);
     this.registre.emit(true);
+  }
+  
+  onGoLogin() {
+    this.goLogin.emit(true);
   }
 } 

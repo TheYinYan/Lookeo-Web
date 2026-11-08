@@ -1,10 +1,17 @@
 {
-    "users": [
-        {
-            "id": 1,
-            "name": "Admin",
-            "email": "admin@example.com",
-            "password": "admin123"
-        }
-    ]
+  "users": [
+    {
+      "id": "1",
+      "name": "Admin",
+      "email": "admin@example.com",
+      "password": "admin123"
+    },
+    {
+      "name": "samuel",
+      "email": "samuelruiz@gmail.com",
+      "password": "2412007SRM",
+      "id": "FJuVP2xoCbo"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
 }

@@ -17,7 +17,6 @@ export class AppComponent {
 
   onRegistered(event: boolean) {
     this.isRegister = event;
-    this.isLogged = true;
   }
 
   onLogin(event: boolean) {
@@ -28,7 +27,7 @@ export class AppComponent {
     this.isRegister = false;
   }
 
-  onGoLogin(){
+  onGoToLogin(){
     this.isRegister = true;
   }
 }

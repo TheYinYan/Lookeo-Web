@@ -45,6 +45,7 @@ export class RegisterComponent {
   }
 
   onGoToLogin() {
+    console.log('Going to login');
     this.goLogin.emit(true);
   }
 }

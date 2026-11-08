@@ -24,7 +24,7 @@ export class LoginComponent {
   user: Users = {
     name: '',
     email: '',
-    password: ''
+    password: '',
   };
 
   onLogin(name: string, email: string, password: string) {

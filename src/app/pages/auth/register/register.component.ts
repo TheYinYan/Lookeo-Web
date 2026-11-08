@@ -29,10 +29,18 @@ export class RegisterComponent {
     password: ''
   };
 
+  userExists: boolean = false;
+
   onRegister() {
-    this.usersService.postUser(this.user).subscribe((newUser: Users) => {
-      console.log('Usuario registrado:', newUser);
-      this.registre.emit(true);
+    this.usersService.getUsers('', this.user.email).subscribe((users: Users[]) => {
+      this.userExists = users.length > 0;
+      if (this.userExists) {
+        console.log('El usuario ya existe');
+        return;
+      }
+      this.usersService.postUser(this.user).subscribe((newUser: Users) => {
+        this.registre.emit(true);
+      });
     });
   }
 

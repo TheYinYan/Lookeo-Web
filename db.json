@@ -5,30 +5,6 @@
       "name": "Admin",
       "email": "admin@example.com",
       "password": "admin123"
-    },
-    {
-      "name": "samuel",
-      "email": "samuelruiz@gmail.com",
-      "password": "2412007SRM",
-      "id": "FJuVP2xoCbo"
-    },
-    {
-      "name": "Pepe",
-      "email": "sruimar2412@g.educaand.es",
-      "password": "12345678L",
-      "id": "c70Lyi0LjLA"
-    },
-    {
-      "name": "Samuel1",
-      "email": "admin@example.com",
-      "password": "admin123",
-      "id": "jp6SECRtVis"
-    },
-    {
-      "name": "Samuel",
-      "email": "admin@example.com",
-      "password": "ssssssss1",
-      "id": "JChJ8a-G2Zc"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

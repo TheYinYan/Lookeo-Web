@@ -130,6 +130,10 @@
   </label>
 </div>
 
+@if (this.userExists) {
+  <span class="alerta">El email ya está en uso.</span>
+}
+
 <button class="btn" type="submit" [disabled]="registerForm.invalid || user.password !== confirmPassword || !termsAccepted">
   Crear cuenta 
 </button>

@@ -1,5 +1,5 @@
 <header>
-  <img src="/favicon.ico" alt="logo" class="logo">
+  <img src="/favicon.ico" alt="logo" class="logo" />
   <h1 class="titulo">Qué bien verte de nuevo.</h1>
   <span class="bottom-text">Tu próximo conjunto empieza aquí.</span>
 </header>
@@ -8,7 +8,7 @@
   <div class="email-from">
     <label for="emailId">Correo Electrónico: </label>
     <div class="input-wrapper">
-      <span class="icono"><img src="assets/email.png" alt="Correo"></span>
+      <span class="icono"><img src="assets/email.png" alt="Correo" /></span>
       <input
       [class.invalid-control]="email.invalid && (email.dirty || email.touched)"
       id="emailId"
@@ -43,9 +43,9 @@
 
       <span class="eye" (click)="showPassword = !showPassword">
         @if (showPassword) {
-          <img src="assets/ojo-cerrado.png" alt="Ocultar">
+          <img src="assets/ojo-cerrado.png" alt="Ocultar" />
         } @else {
-          <img src="assets/ojo-abierto.png" alt="Mostrar">
+          <img src="assets/ojo-abierto.png" alt="Mostrar" />
         }
       </span>
     </div>
@@ -73,7 +73,7 @@
   </button>
 
   <div class="login-link">
-    ¿Aún no tienes cuenta? <a (click)="onGoRegister()" style="cursor: pointer;">Crear cuenta</a>
+    ¿Aún no tienes cuenta? <a (click)="onGoToRegister()" style="cursor: pointer;">Crear cuenta</a>
   </div>
 
 </form>

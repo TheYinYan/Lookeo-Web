@@ -40,7 +40,7 @@ export class LoginComponent {
     });
   }
 
-  onGoRegister() {
+  onGoToRegister() {
     this.goRegister.emit(true);
   }
 }

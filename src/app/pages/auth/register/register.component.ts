@@ -44,7 +44,7 @@ export class RegisterComponent {
     });
   }
 
-  onGoLogin() {
+  onGoToLogin() {
     this.goLogin.emit(true);
   }
 }

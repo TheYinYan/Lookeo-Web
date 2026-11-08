@@ -2,6 +2,7 @@ import { Component, output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { Users } from '../../../models/users';
+import { UsersService } from '../../../services/users.service';
 
 @Component({
   selector: 'app-register',
@@ -14,10 +15,13 @@ export class RegisterComponent {
 
   registre = output<boolean>();
   goLogin = output<boolean>();
+
   confirmPassword = '';
   showPassword: boolean = false;
   showConfirmPassword: boolean = false;
   termsAccepted: boolean = false;
+
+  constructor(private usersService: UsersService) { }
 
   user: Users = {
     name: '',
@@ -25,8 +29,22 @@ export class RegisterComponent {
     password: ''
   };
 
+  userExists: boolean = false;
+
   onRegister() {
-    console.log('Datos a enviar a la API:', this.user);
-    this.registre.emit(true);
+    this.usersService.getUsers('', this.user.email).subscribe((users: Users[]) => {
+      this.userExists = users.length > 0;
+      if (this.userExists) {
+        console.log('El usuario ya existe');
+        return;
+      }
+      this.usersService.postUser(this.user).subscribe((newUser: Users) => {
+        this.registre.emit(true);
+      });
+    });
   }
-} 
+
+  onGoToLogin() {
+    this.goLogin.emit(true);
+  }
+}

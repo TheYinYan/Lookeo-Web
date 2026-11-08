@@ -1,61 +1,70 @@
 <header>
-  <img src="/favicon.ico" alt="logo" class="logo">
+  <img src="/favicon.ico" alt="logo" class="logo" />
   <h1 class="titulo">Qué bien verte de nuevo.</h1>
   <span class="bottom-text">Tu próximo conjunto empieza aquí.</span>
 </header>
 
 <form #loginForm="ngForm" (ngSubmit)="onLogin()">
-
   <div class="name-from">
     <label for="nameId">Usuario: </label>
     <div class="input-wrapper">
-      <span class="icono"><img src="assets/user.png" alt="Usuario"></span>
+      <span class="icono"><img src="assets/user.png" alt="Usuario" /></span>
       <input
         id="nameId"
         type="text"
         placeholder="¿Cómo te llamas?"
         name="name"
         [(ngModel)]="user.name"
-        required>
+        required
+      />
     </div>
   </div>
 
   <div class="password-from">
     <label for="passwordId">Contraseña: </label>
     <div class="input-wrapper">
-      <span class="icono"><img src="assets/lock.png" alt="Contraseña"></span>
+      <span class="icono"><img src="assets/lock.png" alt="Contraseña" /></span>
       <input
         id="passwordId"
         [type]="showPassword ? 'text' : 'password'"
         placeholder="Escribe tu contraseña"
         name="password"
         [(ngModel)]="user.password"
-        required>
-      
+        required
+      />
+
       <span class="eye" (click)="showPassword = !showPassword">
         @if (showPassword) {
-          <img src="assets/ojo-cerrado.png" alt="Ocultar">
+          <img src="assets/ojo-cerrado.png" alt="Ocultar" />
         } @else {
-          <img src="assets/ojo-abierto.png" alt="Mostrar">
+          <img src="assets/ojo-abierto.png" alt="Mostrar" />
         }
       </span>
     </div>
   </div>
 
-  <div class="terms-wrapper" style="display: flex; justify-content: space-between; align-items: center; margin-top: 15px;">
+  <div
+    class="terms-wrapper"
+    style="
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 15px;
+    "
+  >
     <label class="checkbox-label">
-      <input type="checkbox" name="rememberMe" [(ngModel)]="rememberMe">
+      <input type="checkbox" name="rememberMe" [(ngModel)]="rememberMe" />
       <span class="terms-text">Recordarme</span>
     </label>
     <a href="#" class="forgot-link">¿Olvidaste tu contraseña?</a>
   </div>
 
   <button class="btn" type="submit" [disabled]="loginForm.invalid">
-    Iniciar Sesión 
+    Iniciar Sesión
   </button>
-          
-  <div class="login-link">
-    ¿Aún no tienes cuenta? <a (click)="onGoRegister()" style="cursor: pointer;">Crear cuenta</a>
-  </div>
 
+  <div class="login-link">
+    ¿Aún no tienes cuenta?
+    <a (click)="onGoToRegister()" style="cursor: pointer">Crear cuenta</a>
+  </div>
 </form>

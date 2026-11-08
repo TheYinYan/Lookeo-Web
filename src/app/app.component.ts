@@ -8,14 +8,14 @@ import { HomeComponent } from './pages/home/home.component';
   selector: 'app-root',
   imports: [RouterOutlet, RegisterComponent, LoginComponent, HomeComponent],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrl: './app.component.css',
 })
 export class AppComponent {
   title = 'Lookeo-Web';
   isLogged = false;
   isRegister = false;
 
-  onRegistered(event: boolean) { 
+  onRegistered(event: boolean) {
     this.isRegister = event;
   }
 
@@ -23,7 +23,7 @@ export class AppComponent {
     this.isLogged = event;
   }
 
-  onGoRegister() {
+  onGoToRegister() {
     this.isRegister = false;
   }
 }

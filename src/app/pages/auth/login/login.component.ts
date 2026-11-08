@@ -7,10 +7,9 @@ import { Users } from '../../../models/users';
   selector: 'app-login',
   imports: [FormsModule, CommonModule],
   templateUrl: './login.component.html',
-  styleUrl: './login.component.css'
+  styleUrl: './login.component.css',
 })
 export class LoginComponent {
-
   login = output<boolean>();
   goRegister = output<boolean>();
 
@@ -21,7 +20,7 @@ export class LoginComponent {
   user: Users = {
     name: '',
     email: '',
-    password: ''
+    password: '',
   };
 
   onLogin() {
@@ -31,7 +30,7 @@ export class LoginComponent {
     this.login.emit(true);
   }
 
-  onGoRegister() {
+  onGoToRegister() {
     this.goRegister.emit(true);
   }
 }

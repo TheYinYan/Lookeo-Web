@@ -8,7 +8,7 @@
   <div class="name-from">
     <label for="nameId">Nombre de usuario: </label>
     <div class="input-wrapper">
-      <span class="icono"><img src="assets/user.png" alt="Usuario" /></span>
+      <span class="icono"><img src="assets/user.ico" alt="Usuario" /></span>
       <input
         [class.invalid-control]="name.invalid && (name.dirty || name.touched)"
         id="nameId"
@@ -35,7 +35,7 @@
   <div class="email-from">
     <label for="emailId">Correo Electrónico: </label>
     <div class="input-wrapper">
-      <span class="icono"><img src="assets/email.png" alt="Correo" /></span>
+      <span class="icono"><img src="assets/email.ico" alt="Correo" /></span>
       <input
         [class.invalid-control]="
           email.invalid && (email.dirty || email.touched)
@@ -64,7 +64,7 @@
   <div class="password-from">
     <label for="passwordId">Contraseña: </label>
     <div class="input-wrapper">
-      <span class="icono"><img src="assets/lock.png" alt="Contraseña" /></span>
+      <span class="icono"><img src="assets/lock.ico" alt="Contraseña" /></span>
       <input
         [class.invalid-control]="
           password.invalid && (password.dirty || password.touched)
@@ -82,9 +82,9 @@
 
       <span class="eye" (click)="showPassword = !showPassword">
         @if (showPassword) {
-          <img src="assets/ojo-cerrado.png" alt="Ocultar" />
+          <img src="assets/ojo-cerrado.ico" alt="Ocultar" />
         } @else {
-          <img src="assets/ojo-abierto.png" alt="Mostrar" />
+          <img src="assets/ojo-abierto.ico" alt="Mostrar" />
         }
       </span>
     </div>
@@ -110,7 +110,7 @@
 
     <div class="input-wrapper">
       <span class="icono"
-        ><img src="assets/lock.png" alt="Confirmar contraseña"
+        ><img src="assets/lock.ico" alt="Confirmar contraseña"
       /></span>
       <input
         [class.invalid-control]="

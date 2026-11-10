@@ -1,4 +1,8 @@
-/* You can add global styles to this file, and also import other style files */
-*{
-    background-color: black;
+:root {
+  /* Colores corporativos Lookeo */
+  --lookeo-black: #000000;
+  --lookeo-gold: #D4AF37;
+  --lookeo-gray: #A6A6A0;
+  --lookeo-dark-gray: #2C2C2C;
+  --lookeo-white: #FFFFFF;
 }

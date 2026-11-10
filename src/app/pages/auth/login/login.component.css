@@ -1,5 +1,23 @@
 *{
-   color: white;
+   color: var(--lookeo-white);
+}
+
+.top-text {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 80px;
+}
+
+.left-text {
+  color: var(--lookeo-gold);
+  font-size: 25px;
+}
+
+.right-text {
+  color: var(--lookeo-gray);
+  font-size: 12px;
 }
 
 header {
@@ -9,11 +27,17 @@ header {
 }
 
 header .logo {
-  width: 85px;
-  height: 85px;
+  width: 100px;
+  height: 100px;
   object-fit: contain;
   display: block;
   margin: 0 auto 15px auto;
+}
+
+.email-from label,
+.password-from label {
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
 }
 
 .input-wrapper {
@@ -27,10 +51,18 @@ header .logo {
 .input-wrapper input {
   width: 100%;
   padding: 12px 40px 12px 40px;
-  border: 1px solid #ccc;
+  border: 1px solid var(--lookeo-gray);
+  background-color: var(--lookeo-dark-gray);
+  color: var(--lookeo-white);
   border-radius: 8px;
   font-size: 14px;
   box-sizing: border-box;
+}
+
+.input-wrapper input::placeholder {
+  font-family: "Inter", sans-serif;
+  color: var(--lookeo-gray);
+  opacity: 1;
 }
 
 .alerta {
@@ -79,7 +111,7 @@ header .logo {
 form {
   max-width: 500px;
   margin: 20px auto;
-  font-family: sans-serif;
+  font-family: "Inter", sans-serif;
 }
 
 .name-from, .email-from, .password-from {
@@ -98,7 +130,7 @@ label {
 
 button {
   padding: 10px 20px;
-  background-color: #ffc107;
+  background-color: var(--lookeo-gold);
   border: none;
   border-radius: 5px;
   font-weight: bold;
@@ -106,7 +138,7 @@ button {
 }
 
 button:disabled {
-  background-color: #ccc;
+  background-color: var(--lookeo-gray);
   cursor: not-allowed;
 }
 
@@ -114,7 +146,7 @@ button:disabled {
   display: block;
   text-align: center;
   font-size: 0.9rem;
-  color: #666;
+  color: var(--lookeo-gray);
   margin-bottom: 20px;
 }
 
@@ -130,26 +162,38 @@ button:disabled {
   align-items: center;
   cursor: pointer;
   font-size: 13px;
-  color: #aaa;
+  color: var(--lookeo-gray);
   gap: 10px;
 }
 
 .checkbox-label input[type="checkbox"] {
-  accent-color: #e5b856;
+  accent-color: var(--lookeo-gold);
   width: 16px;
   height: 16px;
   cursor: pointer;
 }
 
+.terms-text {
+  font-weight: 400;
+  color: var(--lookeo-gray);
+}
+
 .terms-text a {
-  color: #e5b856;
+  color: var(--lookeo-gold);
   text-decoration: none;
+}
+
+.forgot-link{
+    font-size: 13px;
+    color: var(--lookeo-gold);
+    text-align: center;
+    margin: 0;
 }
 
 .btn {
   width: 100%;
   padding: 14px;
-  background-color: #e5b856;
+  background-color: var(--lookeo-gold);
   color: #000;
   border: none;
   border-radius: 6px;
@@ -160,31 +204,26 @@ button:disabled {
 }
 
 .btn:hover:not(:disabled) {
-  background-color: #fce28b;
+  background-color: var(--lookeo-gold);
 }
 
 .btn:disabled {
-  background-color: #333;
-  color: #666;
+  background-color: var(--lookeo-dark-gray);
+  color: var(--lookeo-gray);
   cursor: not-allowed;
 }
 
 .login-link {
   font-size: 13px;
-  color: #888;
+  color: var(--lookeo-gray);
   text-align: center;
   margin-top: 25px;
 }
 
 .login-link a {
-  color: #e5b856;
+  color: var(--lookeo-gold);
   text-decoration: none;
   font-weight: bold;
 }
 
-.forgot-link{
-    font-size: 13px;
-    color: #e5b856;
-    text-align: center;
-    margin-top: 25px;
-}
+

@@ -6,3 +6,69 @@
   --lookeo-dark-gray: #2C2C2C;
   --lookeo-white: #FFFFFF;
 }
+
+@font-face {
+  font-family: "Inter";
+  src: url("/assets/fonts/inter_18pt_regular.ttf") format("truetype");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("/assets/fonts/inter_18pt_medium.ttf") format("truetype");
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("/assets/fonts/inter_18pt_semi_bold.ttf") format("truetype");
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("/assets/fonts/inter_18pt_bold.ttf") format("truetype");
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: "Playfair Display";
+  src: url("/assets/fonts/playfair_display_regular.ttf") format("truetype");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Playfair Display";
+  src: url("/assets/fonts/playfair_display_bold.ttf") format("truetype");
+  font-weight: 700;
+}
+
+app-root {
+  display: block;
+  min-height: 100vh;
+  background-color: var(--lookeo-black);
+}
+
+html,
+body {
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  margin: 0;
+  min-height: 100%;
+  background-color: var(--lookeo-black);
+  color: var(--lookeo-white);
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+h1,
+h2,
+h3,
+.titulo {
+  font-family: "Playfair Display", serif;
+}

@@ -10,41 +10,48 @@ import { AuthService } from '../../../services/auth.service';
   standalone: true,
   imports: [FormsModule, CommonModule],
   templateUrl: './register.component.html',
-  styleUrl: './register.component.css'
+  styleUrl: './register.component.css',
 })
 export class RegisterComponent {
-
-  registre = output<boolean>();
-  goLogin = output<boolean>();
+  register = output<boolean>();
+  goToLogin = output<boolean>();
 
   confirmPassword = '';
   showPassword: boolean = false;
   showConfirmPassword: boolean = false;
   termsAccepted: boolean = false;
 
-  constructor(private usersService: UsersService, private authService: AuthService) { }
+  constructor(
+    private usersService: UsersService,
+    private authService: AuthService,
+  ) {}
 
   user: Users = {
     name: '',
     email: '',
-    passwordHash: ''
+    passwordHash: '',
   };
 
   IsError: boolean = false;
-  nameError: string = "";
+  nameError: string = '';
 
   onRegister() {
     this.authService.postRegister(this.user).subscribe({
-      next: (newUser: Users) => { this.registre.emit(true); },
+      next: (newUser: Users) => {
+        this.register.emit(true);
+      },
       error: (err) => {
-        if (err === 409) { this.IsError = true, this.nameError = "Email ya registrado" }
-        else { this.IsError = true, this.nameError = "Error inesperado" }
-      }
+        if (err === 409) {
+          ((this.IsError = true), (this.nameError = 'Email ya registrado'));
+        } else {
+          ((this.IsError = true), (this.nameError = 'Error inesperado'));
+        }
+      },
     });
   }
 
   onGoToLogin() {
     console.log('Going to login');
-    this.goLogin.emit(true);
+    this.goToLogin.emit(true);
   }
 }

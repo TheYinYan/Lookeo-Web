@@ -1,5 +1,8 @@
 @if (!this.isRegister) {
-  <app-register (registre)="onRegistered($event)" (goLogin)="onGoToLogin()"></app-register>
+  <app-register
+    (register)="onRegistered($event)"
+    (goToLogin)="onGoToLogin()"
+  ></app-register>
 } @else if (!this.isLogged) {
   <app-login
     (login)="onLogin($event)"

@@ -3,6 +3,7 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { Users } from '../../../models/users';
 import { UsersService } from '../../../services/users.service';
+import { AuthService } from '../../../services/auth.service';
 
 @Component({
   selector: 'app-register',
@@ -21,26 +22,24 @@ export class RegisterComponent {
   showConfirmPassword: boolean = false;
   termsAccepted: boolean = false;
 
-  constructor(private usersService: UsersService) { }
+  constructor(private usersService: UsersService, private authService: AuthService) { }
 
   user: Users = {
     name: '',
     email: '',
-    password: ''
+    passwordHash: ''
   };
 
-  userExists: boolean = false;
+  IsError: boolean = false;
+  nameError: string = "";
 
   onRegister() {
-    this.usersService.getUsers('', this.user.email).subscribe((users: Users[]) => {
-      this.userExists = users.length > 0;
-      if (this.userExists) {
-        console.log('El usuario ya existe');
-        return;
+    this.authService.postRegister(this.user).subscribe({
+      next: (newUser: Users) => { this.registre.emit(true); },
+      error: (err) => {
+        if (err === 409) { this.IsError = true, this.nameError = "Email ya registrado" }
+        else { this.IsError = true, this.nameError = "Error inesperado" }
       }
-      this.usersService.postUser(this.user).subscribe((newUser: Users) => {
-        this.registre.emit(true);
-      });
     });
   }
 

@@ -3,6 +3,7 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { Users } from '../../../models/users';
 import { UsersService } from '../../../services/users.service';
+import { AuthService } from '../../../services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -16,27 +17,25 @@ export class LoginComponent {
 
   showPassword: boolean = false;
   rememberMe: boolean = false;
-  credentialValid: boolean = true;
-  userExists: boolean = true;
 
-  constructor(private usersService: UsersService) {}
+  IsError: boolean = false;
+  nameError: string = "";
+
+  constructor(private usersService: UsersService, private authService: AuthService) { }
 
   user: Users = {
     name: '',
     email: '',
-    password: '',
+    passwordHash: '',
   };
 
   onLogin(name: string, email: string, password: string) {
-    this.usersService.getUsers(name,email).subscribe({
-      next: (users: Users[]) => {
-        if (users.length === 0) this.userExists = false;
-        else if (email == users[0]?.email && password == users[0]?.password) {
-          this.userExists = true;
-          this.credentialValid = true;
-          this.login.emit(true);
-        } else this.credentialValid = false, this.userExists = true;
-      },
+    this.authService.postLogin(this.user).subscribe({
+      next: (newUser: Users) => { this.login.emit(true); },
+      error: (err) => {
+        if (err == 401) { this.IsError = true, this.nameError = "Credenciales inválidas" }
+        else { this.IsError = true, this.nameError = "Error inesperado" }
+      }
     });
   }
 

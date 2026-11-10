@@ -4,7 +4,7 @@
   <span class="bottom-text">Tu próximo conjunto empieza aquí.</span>
 </header>
 
-<form #loginForm="ngForm" (ngSubmit)="onLogin(user.name,user.email, user.password)">
+<form #loginForm="ngForm" (ngSubmit)="onLogin(user.name,user.email, user.passwordHash)">
   <div class="email-from">
     <label for="emailId">Correo Electrónico: </label>
     <div class="input-wrapper">
@@ -25,6 +25,7 @@
         @if (email.errors?.['required']) { <p class="alerta">El correo es obligatorio.</p> }
         @if (email.errors?.['email']) { <p class="alerta">Introduce un correo válido.</p> }
     }
+
   </div>
 
   <div class="password-from">
@@ -37,7 +38,7 @@
         [type]="showPassword ? 'text' : 'password'"
         placeholder="Escribe tu contraseña"
         name="password"
-        [(ngModel)]="user.password"
+        [(ngModel)]="user.passwordHash"
         required
         #password = "ngModel">
 
@@ -62,12 +63,9 @@
     <a href="#" class="forgot-link">¿Olvidaste tu contraseña?</a>
   </div>
 
-  @if (!this.userExists) {
-    <span class="alerta">El usuario no existe.</span>
-  } @else if  (!this.credentialValid) {
-    <span class="alerta">Credenciales inválidas. Por favor, verifica tu usuario y contraseña.</span>
+  @if (!this.IsError) {
+    <span class="alerta">{{this.nameError}}</span>
   }
-
   <button class="btn" type="submit" [disabled]="loginForm.invalid">
     Iniciar Sesión
   </button>

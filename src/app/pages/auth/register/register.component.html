@@ -62,12 +62,12 @@
         [type]="showPassword ? 'text' : 'password'"
         placeholder="Crea una contraseña"
         name="password"
-        [(ngModel)]="user.password"
+        [(ngModel)]="user.passwordHash"
         required
         minlength="8"
         pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$"
         #password="ngModel">
-      
+
       <span class="eye" (click)="showPassword = !showPassword">
         @if (showPassword) {
           <img src="assets/ojo-cerrado.png" alt="Ocultar">
@@ -87,18 +87,18 @@
 
 <div class="password-from">
   <label for="confirmPasswordId">Confirmar contraseña: </label>
-  
+
   <div class="input-wrapper">
     <span class="icono"><img src="assets/lock.png" alt="Confirmar contraseña"></span>
     <input
       [class.invalid-control]="confirmPasswordInput.invalid && (confirmPasswordInput.dirty || confirmPasswordInput.touched)"
       id="confirmPasswordId"
-      [type]="showConfirmPassword ? 'text' : 'password'" 
+      [type]="showConfirmPassword ? 'text' : 'password'"
       placeholder="Repite tu contraseña"
       name="confirmPassword"
       [(ngModel)]="confirmPassword"
       required
-      #confirmPasswordInput="ngModel"> 
+      #confirmPasswordInput="ngModel">
 
     <span class="eye" (click)="showConfirmPassword = !showConfirmPassword">
       @if (showConfirmPassword) {
@@ -107,15 +107,15 @@
         <img src="assets/ojo-abierto.png" alt="Mostrar">
       }
     </span>
-  </div> 
+  </div>
 
   @if (confirmPasswordInput.invalid && (confirmPasswordInput.dirty || confirmPasswordInput.touched)) {
-    @if (confirmPasswordInput.errors?.['required']) { 
-      <p class="alerta">Debes confirmar la contraseña.</p> 
+    @if (confirmPasswordInput.errors?.['required']) {
+      <p class="alerta">Debes confirmar la contraseña.</p>
     }
   }
-  
-  @if (confirmPassword.length > 0 && user.password !== confirmPassword) {
+
+  @if (confirmPassword.length > 0 && user.passwordHash !== confirmPassword) {
     <p class="alerta">Las contraseñas no coinciden.</p>
   }
 </div>
@@ -130,14 +130,14 @@
   </label>
 </div>
 
-@if (this.userExists) {
-  <span class="alerta">El email ya está en uso.</span>
+@if (this.IsError) {
+  <span class="alerta">{{this.nameError}}</span>
 }
 
-<button class="btn" type="submit" [disabled]="registerForm.invalid || user.password !== confirmPassword || !termsAccepted">
-  Crear cuenta 
+<button class="btn" type="submit" [disabled]="registerForm.invalid || user.passwordHash !== confirmPassword || !termsAccepted">
+  Crear cuenta
 </button>
-        
+
 <div class="login-link">
   ¿Ya tienes cuenta? <a (click)="onGoToLogin()"  style="cursor: pointer;">Inicia sesión</a>
 </div>

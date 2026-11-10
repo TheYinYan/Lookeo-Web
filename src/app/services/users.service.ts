@@ -17,8 +17,4 @@ export class UsersService {
 
     return this.http.get<Users[]>(this.apiUrl, { params });
   }
-
-  postUser(user: Users) {
-    return this.http.post<Users>(this.apiUrl, user);
-  }
 }

@@ -5,6 +5,7 @@ import { Users } from '../../../models/users';
 import { UsersService } from '../../../services/users.service';
 import { AuthService } from '../../../services/auth.service';
 import { Header1Component } from '../../../components/header-1/header-1.component';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-register',
@@ -41,12 +42,9 @@ export class RegisterComponent {
       next: (newUser: Users) => {
         this.register.emit(true);
       },
-      error: (err) => {
-        if (err === 409) {
-          ((this.IsError = true), (this.nameError = 'Email ya registrado'));
-        } else {
-          ((this.IsError = true), (this.nameError = 'Error inesperado'));
-        }
+      error: (err: HttpErrorResponse) => {
+        this.IsError = true;
+        err.status === 409 ? 'Email ya registrado' : 'Error inesperado';
       },
     });
   }

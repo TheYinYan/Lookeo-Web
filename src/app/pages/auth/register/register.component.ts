@@ -35,7 +35,7 @@ export class RegisterComponent {
   };
 
   IsError: boolean = false;
-  nameError: string = '';
+  errorMessage: string = '';
 
   onRegister() {
     this.authService.postRegister(this.user).subscribe({
@@ -44,7 +44,7 @@ export class RegisterComponent {
       },
       error: (err: HttpErrorResponse) => {
         this.IsError = true;
-        this.nameError =
+        this.errorMessage =
           err.status === 409 ? 'Email ya registrado' : 'Error inesperado';
       },
     });

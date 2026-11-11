@@ -3,11 +3,11 @@ import { inject, Injectable } from '@angular/core';
 import { Users } from '../models/users';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class UsersService {
   private http = inject(HttpClient);
-  private apiUrl = 'http://localhost:3000/users';
+  private apiUrl = 'http://localhost:3000/api/users';
 
   getUsers(name?: string, email?: string, password?: string) {
     let params = new HttpParams();

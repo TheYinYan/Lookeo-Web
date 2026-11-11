@@ -24,8 +24,8 @@ export class RegisterComponent {
   termsAccepted: boolean = false;
 
   constructor(
-    private usersService: UsersService,
-    private authService: AuthService,
+    private readonly usersService: UsersService,
+    private readonly authService: AuthService,
   ) {}
 
   user: Users = {

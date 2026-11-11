@@ -8,10 +8,7 @@
     <h1 class="titulo">Qué bien verte de nuevo.</h1>
     <span class="bottom-text">Tu próximo conjunto empieza aquí.</span>
   </section>
-  <form
-    #loginForm="ngForm"
-    (ngSubmit)="onLogin( user.email, user.password)"
-  >
+  <form #loginForm="ngForm" (ngSubmit)="onLogin(user.email, user.password)">
     <div class="email-from">
       <label for="emailId">Usuario: </label>
       <div class="input-wrapper">
@@ -94,7 +91,7 @@
       <a href="#" class="forgot-link">¿Olvidaste tu contraseña?</a>
     </div>
 
-    @if (!this.IsError) {
+    @if (this.IsError) {
       <span class="alerta">{{ this.nameError }}</span>
     }
     <button class="btn" type="submit" [disabled]="loginForm.invalid">

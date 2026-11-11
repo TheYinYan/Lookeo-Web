@@ -5,6 +5,7 @@ import { Users } from '../../../models/users';
 import { UsersService } from '../../../services/users.service';
 import { AuthService } from '../../../services/auth.service';
 import { Header1Component } from '../../../components/header-1/header-1.component';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-login',
@@ -33,19 +34,15 @@ export class LoginComponent {
     password: '',
   };
 
-
-
   onLogin(email: string, password: string) {
     this.authService.postLogin(this.user).subscribe({
       next: (newUser: Users) => {
         this.login.emit(true);
       },
-      error: (err) => {
-        if (err == 401) {
-          ((this.IsError = true), (this.nameError = 'Credenciales inválidas'));
-        } else {
-          ((this.IsError = true), (this.nameError = 'Error inesperado'));
-        }
+      error: (err: HttpErrorResponse) => {
+        this.IsError = true;
+        this.nameError =
+          err.status == 401 ? 'Credenciales inválidas' : 'Error inesperado';
       },
     });
   }

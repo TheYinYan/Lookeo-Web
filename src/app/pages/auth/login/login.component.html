@@ -57,6 +57,7 @@
           name="password"
           [(ngModel)]="user.password"
           required
+          minlength="8"
           #password="ngModel"
         />
 
@@ -71,6 +72,9 @@
       @if (password.invalid && (password.dirty || password.touched)) {
         @if (password.errors?.["required"]) {
           <p class="alerta">La contraseña es obligatoria.</p>
+        }
+        @if (password.errors?.["minlength"]) {
+          <p class="alerta">La contraseña debe tener al menos 8 caracteres.</p>
         }
       }
     </div>

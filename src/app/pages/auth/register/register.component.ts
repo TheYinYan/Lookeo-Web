@@ -44,7 +44,8 @@ export class RegisterComponent {
       },
       error: (err: HttpErrorResponse) => {
         this.IsError = true;
-        err.status === 409 ? 'Email ya registrado' : 'Error inesperado';
+        this.nameError =
+          err.status === 409 ? 'Email ya registrado' : 'Error inesperado';
       },
     });
   }

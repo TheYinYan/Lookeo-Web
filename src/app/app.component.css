@@ -1,0 +1,17 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+app-register,
+app-login,
+app-home {
+  display: block;
+  flex: 1;
+}
+
+app-footer {
+  display: block;
+  margin-top: auto;
+}

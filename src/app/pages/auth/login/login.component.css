@@ -2,41 +2,21 @@
    color: var(--lookeo-white);
 }
 
-.top-text {
+.logo-container {
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  flex-direction: column;
   align-items: center;
-  padding: 0 80px;
 }
 
-.left-text {
-  color: var(--lookeo-gold);
-  font-size: 25px;
-}
-
-.right-text {
-  color: var(--lookeo-gray);
-  font-size: 12px;
-}
-
-header {
-  text-align: center;
-  margin-bottom: 20px;
-  padding-top: 20px;
-}
-
-header .logo {
+.logo-container img {
   width: 100px;
   height: 100px;
-  object-fit: contain;
-  display: block;
-  margin: 0 auto 15px auto;
 }
 
 .email-from label,
 .password-from label {
   font-family: "Inter", sans-serif;
+  font-size: 1rem;
   font-weight: 400;
 }
 
@@ -55,7 +35,7 @@ header .logo {
   background-color: var(--lookeo-dark-gray);
   color: var(--lookeo-white);
   border-radius: 8px;
-  font-size: 14px;
+  font-size: 0.8rem;
   box-sizing: border-box;
 }
 
@@ -63,6 +43,25 @@ header .logo {
   font-family: "Inter", sans-serif;
   color: var(--lookeo-gray);
   opacity: 1;
+}
+
+.input-wrapper input:-webkit-autofill,
+.input-wrapper input:-webkit-autofill:hover,
+.input-wrapper input:-webkit-autofill:focus {
+  -webkit-text-fill-color: var(--lookeo-white);
+  -webkit-box-shadow: 0 0 0 1000px var(--lookeo-dark-gray) inset;
+  box-shadow: 0 0 0 1000px var(--lookeo-dark-gray) inset;
+  caret-color: var(--lookeo-white);
+}
+
+.input-wrapper input {
+  color-scheme: dark;
+}
+
+.input-wrapper input:focus {
+  outline: none;
+  background-color: var(--lookeo-dark-gray);
+  color: var(--lookeo-white);
 }
 
 .alerta {
@@ -164,6 +163,7 @@ button:disabled {
   font-size: 13px;
   color: var(--lookeo-gray);
   gap: 10px;
+  margin: 0;
 }
 
 .checkbox-label input[type="checkbox"] {
@@ -176,15 +176,17 @@ button:disabled {
 .terms-text {
   font-weight: 400;
   color: var(--lookeo-gray);
+
 }
 
 .terms-text a {
   color: var(--lookeo-gold);
   text-decoration: none;
+  font-size: 0.8rem;
 }
 
 .forgot-link{
-    font-size: 13px;
+    font-size: 0.8rem;
     color: var(--lookeo-gold);
     text-align: center;
     margin: 0;
@@ -200,7 +202,6 @@ button:disabled {
   font-size: 15px;
   font-weight: bold;
   cursor: pointer;
-  margin-top: 10px;
 }
 
 .btn:hover:not(:disabled) {

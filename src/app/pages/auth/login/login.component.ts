@@ -4,10 +4,11 @@ import { CommonModule } from '@angular/common';
 import { Users } from '../../../models/users';
 import { UsersService } from '../../../services/users.service';
 import { AuthService } from '../../../services/auth.service';
+import { Header1Component } from '../../../components/header-1/header-1.component';
 
 @Component({
   selector: 'app-login',
-  imports: [FormsModule, CommonModule],
+  imports: [FormsModule, CommonModule, Header1Component],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css',
 })
@@ -19,9 +20,12 @@ export class LoginComponent {
   rememberMe: boolean = false;
 
   IsError: boolean = false;
-  nameError: string = "";
+  nameError: string = '';
 
-  constructor(private usersService: UsersService, private authService: AuthService) { }
+  constructor(
+    private usersService: UsersService,
+    private authService: AuthService,
+  ) {}
 
   user: Users = {
     name: '',
@@ -31,11 +35,16 @@ export class LoginComponent {
 
   onLogin(name: string, email: string, password: string) {
     this.authService.postLogin(this.user).subscribe({
-      next: (newUser: Users) => { this.login.emit(true); },
+      next: (newUser: Users) => {
+        this.login.emit(true);
+      },
       error: (err) => {
-        if (err == 401) { this.IsError = true, this.nameError = "Credenciales inválidas" }
-        else { this.IsError = true, this.nameError = "Error inesperado" }
-      }
+        if (err == 401) {
+          ((this.IsError = true), (this.nameError = 'Credenciales inválidas'));
+        } else {
+          ((this.IsError = true), (this.nameError = 'Error inesperado'));
+        }
+      },
     });
   }
 

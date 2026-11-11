@@ -1,194 +1,224 @@
 <header>
-  <span class="top-text">BIENVENIDO A LOOKEO</span>
-  <h1 class="titulo">Tu estilo empieza aquí.</h1>
-  <span class="bottom-text">Crea tu cuenta y empieza a explorar.</span>
+  <app-header-1></app-header-1>
 </header>
 
-<form #registerForm="ngForm" (ngSubmit)="onRegister()">
-  <div class="name-from">
-    <label for="nameId">Nombre de usuario: </label>
-    <div class="input-wrapper">
-      <span class="icono"
-        ><img src="assets/icons/user.ico" alt="Usuario"
-      /></span>
-      <input
-        [class.invalid-control]="name.invalid && (name.dirty || name.touched)"
-        id="nameId"
-        type="text"
-        placeholder="¿Cómo te llamas?"
-        name="name"
-        [(ngModel)]="user.name"
-        required
-        minlength="3"
-        maxlength="40"
-        #name="ngModel"
-      />
+<div class="register-layout">
+  <section class="visual-panel">
+    <img src="assets/logo.svg" alt="Estilo Lookeo" />
+
+    <div class="visual-content">
+      <span class="slogan-box">EL ESTILO EMPIEZA CONTIGO</span>
+      <h2>Más posibilidades.<br />Más tú.</h2>
+      <p>
+        Redescubre tu ropero, encuentra nuevas combinaciones y guarda lo que va
+        contigo.
+      </p>
     </div>
-    @if (name.invalid && (name.dirty || name.touched)) {
-      @if (name.errors?.["required"]) {
-        <p class="alerta">El nombre es obligatorio.</p>
-      }
-      @if (name.errors?.["minlength"]) {
-        <p class="alerta">El nombre debe tener al menos 3 caracteres.</p>
-      }
-    }
-  </div>
+  </section>
 
-  <div class="email-from">
-    <label for="emailId">Correo Electrónico: </label>
-    <div class="input-wrapper">
-      <span class="icono"
-        ><img src="assets/icons/email.ico" alt="Correo"
-      /></span>
-      <input
-        [class.invalid-control]="
-          email.invalid && (email.dirty || email.touched)
-        "
-        id="emailId"
-        type="email"
-        placeholder="tu@correo.com"
-        name="email"
-        [(ngModel)]="user.email"
-        required
-        email
-        #email="ngModel"
-      />
-    </div>
+  <section class="container">
+    <section class="title">
+      <p class="top-text">BIENVENIDO A LOOKEO</p>
+      <h1 class="titulo">Tu estilo empieza aquí.</h1>
+      <p class="bottom-text">
+        Crea tu cuenta y haz de tu ropero un lugar de posibilidades.
+      </p>
+    </section>
 
-    @if (email.invalid && (email.dirty || email.touched)) {
-      @if (email.errors?.["required"]) {
-        <p class="alerta">El correo es obligatorio.</p>
-      }
-      @if (email.errors?.["email"]) {
-        <p class="alerta">Introduce un correo válido.</p>
-      }
-    }
-  </div>
-
-  <div class="password-from">
-    <label for="passwordId">Contraseña: </label>
-    <div class="input-wrapper">
-      <span class="icono"
-        ><img src="assets/icons/lock.ico" alt="Contraseña"
-      /></span>
-      <input
-        [class.invalid-control]="
-          password.invalid && (password.dirty || password.touched)
-        "
-        id="passwordId"
-        [type]="showPassword ? 'text' : 'password'"
-        placeholder="Crea una contraseña"
-        name="password"
-        [(ngModel)]="user.passwordHash"
-        required
-        minlength="8"
-        pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]+$"
-        #password="ngModel"
-      />
-
-      <span class="eye" (click)="showPassword = !showPassword">
-        @if (showPassword) {
-          <img src="assets/icons/ojo-cerrado.ico" alt="Ocultar" />
-        } @else {
-          <img src="assets/icons/ojo-abierto.ico" alt="Mostrar" />
+    <form #registerForm="ngForm" (ngSubmit)="onRegister()">
+      <div class="name-form">
+        <label for="nameId">Nombre de usuario: </label>
+        <div class="input-wrapper">
+          <span class="icono"
+            ><img src="assets/icons/user.ico" alt="Usuario"
+          /></span>
+          <input
+            [class.invalid-control]="
+              name.invalid && (name.dirty || name.touched)
+            "
+            id="nameId"
+            type="text"
+            placeholder="¿Cómo te llamas?"
+            name="name"
+            [(ngModel)]="user.name"
+            required
+            minlength="3"
+            maxlength="40"
+            #name="ngModel"
+          />
+        </div>
+        @if (name.invalid && (name.dirty || name.touched)) {
+          @if (name.errors?.["required"]) {
+            <p class="alerta">El nombre es obligatorio.</p>
+          }
+          @if (name.errors?.["minlength"]) {
+            <p class="alerta">El nombre debe tener al menos 3 caracteres.</p>
+          }
         }
-      </span>
-    </div>
-    <span class="password-requirements">
-      Al menos 8 caracteres, una letra y un número.</span
-    >
+      </div>
 
-    @if (password.invalid && (password.dirty || password.touched)) {
-      @if (password.errors?.["required"]) {
-        <p class="alerta">La contraseña es obligatoria.</p>
-      }
-      @if (password.errors?.["minlength"]) {
-        <p class="alerta">Debe tener al menos 8 caracteres.</p>
-      }
-      @if (password.errors?.["pattern"]) {
-        <p class="alerta">Debe contener al menos una letra y un número.</p>
-      }
-    }
-  </div>
+      <div class="email-form">
+        <label for="emailId">Correo Electrónico: </label>
+        <div class="input-wrapper">
+          <span class="icono"
+            ><img src="assets/icons/email.ico" alt="Correo"
+          /></span>
+          <input
+            [class.invalid-control]="
+              email.invalid && (email.dirty || email.touched)
+            "
+            id="emailId"
+            type="email"
+            placeholder="tu@correo.com"
+            name="email"
+            [(ngModel)]="user.email"
+            required
+            email
+            #email="ngModel"
+          />
+        </div>
 
-  <div class="password-from">
-    <label for="confirmPasswordId">Confirmar contraseña: </label>
+        @if (email.invalid && (email.dirty || email.touched)) {
+          @if (email.errors?.["required"]) {
+            <p class="alerta">El correo es obligatorio.</p>
+          }
+          @if (email.errors?.["email"]) {
+            <p class="alerta">Introduce un correo válido.</p>
+          }
+        }
+      </div>
 
-    <div class="input-wrapper">
-      <span class="icono"
-        ><img src="assets/icons/lock.ico" alt="Confirmar contraseña"
-      /></span>
-      <input
-        [class.invalid-control]="
+      <div class="password-form">
+        <label for="passwordId">Contraseña: </label>
+        <div class="input-wrapper">
+          <span class="icono"
+            ><img src="assets/icons/lock.ico" alt="Contraseña"
+          /></span>
+          <input
+            [class.invalid-control]="
+              password.invalid && (password.dirty || password.touched)
+            "
+            id="passwordId"
+            [type]="showPassword ? 'text' : 'password'"
+            placeholder="Crea una contraseña"
+            name="password"
+            [(ngModel)]="user.passwordHash"
+            required
+            minlength="8"
+            pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]+$"
+            #password="ngModel"
+          />
+
+          <span class="eye" (click)="showPassword = !showPassword">
+            @if (showPassword) {
+              <img src="assets/icons/ojo-cerrado.ico" alt="Ocultar" />
+            } @else {
+              <img src="assets/icons/ojo-abierto.ico" alt="Mostrar" />
+            }
+          </span>
+        </div>
+        <span class="password-requirements">
+          Al menos 8 caracteres, una letra y un número.</span
+        >
+
+        @if (password.invalid && (password.dirty || password.touched)) {
+          @if (password.errors?.["required"]) {
+            <p class="alerta">La contraseña es obligatoria.</p>
+          }
+          @if (password.errors?.["minlength"]) {
+            <p class="alerta">Debe tener al menos 8 caracteres.</p>
+          }
+          @if (password.errors?.["pattern"]) {
+            <p class="alerta">Debe contener al menos una letra y un número.</p>
+          }
+        }
+      </div>
+
+      <div class="password-form">
+        <label for="confirmPasswordId">Confirmar contraseña: </label>
+
+        <div class="input-wrapper">
+          <span class="icono"
+            ><img src="assets/icons/lock.ico" alt="Confirmar contraseña"
+          /></span>
+          <input
+            [class.invalid-control]="
+              confirmPasswordInput.invalid &&
+              (confirmPasswordInput.dirty || confirmPasswordInput.touched)
+            "
+            id="confirmPasswordId"
+            [type]="showConfirmPassword ? 'text' : 'password'"
+            placeholder="Repite tu contraseña"
+            name="confirmPassword"
+            [(ngModel)]="confirmPassword"
+            required
+            #confirmPasswordInput="ngModel"
+          />
+
+          <span
+            class="eye"
+            (click)="showConfirmPassword = !showConfirmPassword"
+          >
+            @if (showConfirmPassword) {
+              <img src="assets/icons/ojo-cerrado.ico" alt="Ocultar" />
+            } @else {
+              <img src="assets/icons/ojo-abierto.ico" alt="Mostrar" />
+            }
+          </span>
+        </div>
+
+        @if (
           confirmPasswordInput.invalid &&
           (confirmPasswordInput.dirty || confirmPasswordInput.touched)
-        "
-        id="confirmPasswordId"
-        [type]="showConfirmPassword ? 'text' : 'password'"
-        placeholder="Repite tu contraseña"
-        name="confirmPassword"
-        [(ngModel)]="confirmPassword"
-        required
-        #confirmPasswordInput="ngModel"
-      />
-
-      <span class="eye" (click)="showConfirmPassword = !showConfirmPassword">
-        @if (showConfirmPassword) {
-          <img src="assets/icons/ojo-cerrado.ico" alt="Ocultar" />
-        } @else {
-          <img src="assets/icons/ojo-abierto.ico" alt="Mostrar" />
+        ) {
+          @if (confirmPasswordInput.errors?.["required"]) {
+            <p class="alerta">Debes confirmar la contraseña.</p>
+          }
         }
-      </span>
-    </div>
 
-    @if (
-      confirmPasswordInput.invalid &&
-      (confirmPasswordInput.dirty || confirmPasswordInput.touched)
-    ) {
-      @if (confirmPasswordInput.errors?.["required"]) {
-        <p class="alerta">Debes confirmar la contraseña.</p>
+        @if (
+          confirmPassword.length > 0 && user.passwordHash !== confirmPassword
+        ) {
+          <p class="alerta">Las contraseñas no coinciden.</p>
+        }
+      </div>
+
+      <div class="terms-wrapper">
+        <label class="checkbox-label">
+          <input
+            type="checkbox"
+            name="terms"
+            [(ngModel)]="termsAccepted"
+            required
+          />
+          <span class="custom-checkbox"></span>
+          <span class="terms-text">
+            Acepto los <a href="#">términos y condiciones</a> y la
+            <a href="#">Política de privacidad.</a>
+          </span>
+        </label>
+      </div>
+
+      @if (this.IsError) {
+        <span class="alerta">{{ this.nameError }}</span>
       }
-    }
 
-    @if (confirmPassword.length > 0 && user.passwordHash !== confirmPassword) {
-      <p class="alerta">Las contraseñas no coinciden.</p>
-    }
-  </div>
+      <button
+        class="btn"
+        type="submit"
+        [disabled]="
+          registerForm.invalid ||
+          user.passwordHash !== confirmPassword ||
+          !termsAccepted
+        "
+      >
+        Crear cuenta ->
+      </button>
 
-  <div class="terms-wrapper">
-    <label class="checkbox-label">
-      <input
-        type="checkbox"
-        name="terms"
-        [(ngModel)]="termsAccepted"
-        required
-      />
-      <span class="custom-checkbox"></span>
-      <span class="terms-text">
-        Acepto los <a href="#">términos y condiciones</a> y la
-        <a href="#">Política de privacidad</a>
-      </span>
-    </label>
-  </div>
-
-  @if (this.IsError) {
-    <span class="alerta">{{ this.nameError }}</span>
-  }
-
-  <button
-    class="btn"
-    type="submit"
-    [disabled]="
-      registerForm.invalid ||
-      user.passwordHash !== confirmPassword ||
-      !termsAccepted
-    "
-  >
-    Crear cuenta
-  </button>
-
-  <div class="login-link">
-    ¿Ya tienes cuenta?
-    <a (click)="onGoToLogin()" style="cursor: pointer">Inicia sesión</a>
-  </div>
-</form>
+      <div class="login-link">
+        ¿Ya tienes cuenta?
+        <a (click)="onGoToLogin()" style="cursor: pointer">Inicia sesión</a>
+      </div>
+    </form>
+  </section>
+</div>

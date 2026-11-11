@@ -21,7 +21,7 @@ import { FooterComponent } from './components/footer/footer.component';
 export class AppComponent {
   title = 'Lookeo-Web';
   isLogged = false;
-  isRegister = false;
+  isRegister = true;
 
   onRegistered(event: boolean) {
     this.isRegister = event;

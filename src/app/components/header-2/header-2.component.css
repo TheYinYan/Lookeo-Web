@@ -1,0 +1,18 @@
+.header-logo {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
+.header-logo img {
+  width: 50px;
+  height: 50px;
+}
+
+.logo-text {
+  color: var(--lookeo-gold);
+  font-size: 3rem;
+  font-weight: 400;
+}

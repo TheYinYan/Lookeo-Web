@@ -4,7 +4,7 @@
 
 <div class="register-layout">
   <section class="visual-panel">
-    <img src="assets/logo.svg" alt="Estilo Lookeo" />
+    <img src="assets/logo.svg" alt="Logo Lookeo" />
 
     <div class="visual-content">
       <span class="slogan-box">EL ESTILO EMPIEZA CONTIGO</span>
@@ -176,9 +176,7 @@
           }
         }
 
-        @if (
-          confirmPassword.length > 0 && user.password !== confirmPassword
-        ) {
+        @if (confirmPassword.length > 0 && user.password !== confirmPassword) {
           <p class="alerta">Las contraseñas no coinciden.</p>
         }
       </div>

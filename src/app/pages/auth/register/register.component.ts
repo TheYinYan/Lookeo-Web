@@ -30,7 +30,7 @@ export class RegisterComponent {
   user: Users = {
     name: '',
     email: '',
-    passwordHash: '',
+    password: '',
   };
 
   IsError: boolean = false;

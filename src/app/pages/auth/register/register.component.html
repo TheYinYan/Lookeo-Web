@@ -102,7 +102,7 @@
             [type]="showPassword ? 'text' : 'password'"
             placeholder="Crea una contraseña"
             name="password"
-            [(ngModel)]="user.passwordHash"
+            [(ngModel)]="user.password"
             required
             minlength="8"
             pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]+$"
@@ -177,7 +177,7 @@
         }
 
         @if (
-          confirmPassword.length > 0 && user.passwordHash !== confirmPassword
+          confirmPassword.length > 0 && user.password !== confirmPassword
         ) {
           <p class="alerta">Las contraseñas no coinciden.</p>
         }
@@ -208,7 +208,7 @@
         type="submit"
         [disabled]="
           registerForm.invalid ||
-          user.passwordHash !== confirmPassword ||
+          user.password !== confirmPassword ||
           !termsAccepted
         "
       >

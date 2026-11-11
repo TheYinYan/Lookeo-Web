@@ -30,10 +30,12 @@ export class LoginComponent {
   user: Users = {
     name: '',
     email: '',
-    passwordHash: '',
+    password: '',
   };
 
-  onLogin(name: string, email: string, password: string) {
+
+
+  onLogin(email: string, password: string) {
     this.authService.postLogin(this.user).subscribe({
       next: (newUser: Users) => {
         this.login.emit(true);

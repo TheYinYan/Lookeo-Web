@@ -10,7 +10,7 @@
   </section>
   <form
     #loginForm="ngForm"
-    (ngSubmit)="onLogin(user.name, user.email, user.passwordHash)"
+    (ngSubmit)="onLogin( user.email, user.password)"
   >
     <div class="email-from">
       <label for="emailId">Usuario: </label>
@@ -58,7 +58,7 @@
           [type]="showPassword ? 'text' : 'password'"
           placeholder="Escribe tu contraseña"
           name="password"
-          [(ngModel)]="user.passwordHash"
+          [(ngModel)]="user.password"
           required
           #password="ngModel"
         />

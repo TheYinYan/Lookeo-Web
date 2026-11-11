@@ -21,10 +21,10 @@ import { FooterComponent } from './components/footer/footer.component';
 export class AppComponent {
   title = 'Lookeo-Web';
   isLogged = false;
-  isRegister = true;
+  isRegistered = true;
 
   onRegistered(event: boolean) {
-    this.isRegister = event;
+    this.isRegistered = event;
     this.isLogged = event;
   }
 
@@ -33,10 +33,10 @@ export class AppComponent {
   }
 
   onGoToRegister() {
-    this.isRegister = false;
+    this.isRegistered = false;
   }
 
   onGoToLogin() {
-    this.isRegister = true;
+    this.isRegistered = true;
   }
 }

@@ -40,3 +40,7 @@ testem.log
 # System files
 .DS_Store
 Thumbs.db
+
+
+# Guia de estudio del proyecto
+GUIA_ESTUDIO_WEB.md

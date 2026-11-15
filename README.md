@@ -104,7 +104,7 @@ ng serve
 - [x] Estructura base de Angular configurada.
 - [x] Paleta de colores (Negro, Dorado, Blanco) aplicada.
 - [x] **Conexión con API REST (`Server-Lookeo`) establecida.**
-- [x] **Autenticación (Login) funcional con datos reales y manejo de Token JWT.**
+- [x] **Autenticación (Login) funcional con datos reales**
 - [x] **Registro de nuevos usuarios conectado al servidor.**
 - [x] **Paso de datos del usuario (nombre, email) al componente Home.**
 - [ ] Creación de prendas y conexión con el Probador IA (Pendiente).

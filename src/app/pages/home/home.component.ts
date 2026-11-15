@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, input } from '@angular/core';
 import { Header2Component } from '../../components/header-2/header-2.component';
+import { Users } from '../../models/users';
 
 @Component({
   selector: 'app-home',
@@ -7,4 +8,8 @@ import { Header2Component } from '../../components/header-2/header-2.component';
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
 })
-export class HomeComponent {}
+export class HomeComponent {
+
+  user = input.required<Users>();
+  
+}

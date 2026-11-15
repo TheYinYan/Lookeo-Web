@@ -4,6 +4,7 @@ import { RegisterComponent } from './pages/auth/register/register.component';
 import { LoginComponent } from './pages/auth/login/login.component';
 import { HomeComponent } from './pages/home/home.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { Users } from './models/users';
 
 @Component({
   selector: 'app-root',
@@ -12,7 +13,6 @@ import { FooterComponent } from './components/footer/footer.component';
     RegisterComponent,
     LoginComponent,
     HomeComponent,
-    FooterComponent,
     FooterComponent,
   ],
   templateUrl: './app.component.html',
@@ -23,13 +23,21 @@ export class AppComponent {
   isLogged = false;
   isRegister = true;
 
-  onRegistered(event: boolean) {
-    this.isRegister = event;
-    this.isLogged = event;
+  user: Users = {
+    name: '',
+    email: '',
+    password: '',
+  };
+
+  onRegistered(event: Users) {
+    this.user = event;
+    this.isRegister = true;
+    this.isLogged = true;
   }
 
-  onLogin(event: boolean) {
-    this.isLogged = event;
+  onLogin(event: Users) {
+    this.isLogged = true;
+    this.user = event;
   }
 
   onGoToRegister() {

@@ -14,7 +14,7 @@ import { HttpErrorResponse } from '@angular/common/http';
   styleUrl: './login.component.css',
 })
 export class LoginComponent {
-  login = output<boolean>();
+  login = output<Users>();
   goRegister = output<boolean>();
 
   showPassword: boolean = false;
@@ -36,8 +36,8 @@ export class LoginComponent {
 
   onLogin(email: string, password: string) {
     this.authService.postLogin(this.user).subscribe({
-      next: (newUser: Users) => {
-        this.login.emit(true);
+      next: (newUser: any) => {
+        this.login.emit(newUser.user);
       },
       error: (err: HttpErrorResponse) => {
         this.IsError = true;

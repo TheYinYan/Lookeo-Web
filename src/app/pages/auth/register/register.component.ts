@@ -15,7 +15,7 @@ import { HttpErrorResponse } from '@angular/common/http';
   styleUrl: './register.component.css',
 })
 export class RegisterComponent {
-  register = output<boolean>();
+  register = output<Users>();
   goToLogin = output<boolean>();
 
   confirmPassword = '';
@@ -40,7 +40,7 @@ export class RegisterComponent {
   onRegister() {
     this.authService.postRegister(this.user).subscribe({
       next: (newUser: Users) => {
-        this.register.emit(true);
+        this.register.emit(this.user);
       },
       error: (err: HttpErrorResponse) => {
         this.IsError = true;

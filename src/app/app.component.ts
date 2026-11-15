@@ -21,7 +21,7 @@ import { Users } from './models/users';
 export class AppComponent {
   title = 'Lookeo-Web';
   isLogged = false;
-  isRegistered = false;
+  isRegistered = true;
 
   user: Users = {
     name: '',

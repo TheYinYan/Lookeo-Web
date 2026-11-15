@@ -21,7 +21,7 @@ import { Users } from './models/users';
 export class AppComponent {
   title = 'Lookeo-Web';
   isLogged = false;
-  isRegister = true;
+  isRegistered = false;
 
   user: Users = {
     name: '',
@@ -31,7 +31,7 @@ export class AppComponent {
 
   onRegistered(event: Users) {
     this.user = event;
-    this.isRegister = true;
+    this.isRegistered = true;
     this.isLogged = true;
   }
 
@@ -41,10 +41,10 @@ export class AppComponent {
   }
 
   onGoToRegister() {
-    this.isRegister = false;
+    this.isRegistered = false;
   }
 
   onGoToLogin() {
-    this.isRegister = true;
+    this.isRegistered = true;
   }
 }

@@ -40,9 +40,9 @@ Este repositorio contiene **solo el frontend web**. El backend (API REST) está 
 ## 🎨 Diseño
 
 ### Paleta de colores
-- **Negro** (#000000) → fondo principal.
-- **Dorado** (#D4AF37) → acentos, botones, logo.
-- **Blanco** (#FFFFFF) → textos y elementos secundarios.
+- **Negro** (`#000000`) → fondo principal.
+- **Dorado** (`#D4AF37`) → acentos, botones, logo.
+- **Blanco** (`#FFFFFF`) → textos y elementos secundarios.
 
 ### Estilos de moda
 - **Old Money / Elegante clásico**
@@ -51,8 +51,8 @@ Este repositorio contiene **solo el frontend web**. El backend (API REST) está 
 
 ### Enlaces de diseño
 - 🎨 **[Ver diseño en Figma](https://www.figma.com/make/5IA4TMbDYNLwBl9n0uEql9/Lookeo-Virtual-Wardrobe-App?code-node-id=0-6&p=f&t=j9Q0mR5FGDEEd26c-0&fullscreen=1)**
-- 📁 **Explicación detallada del Proyecto** → [Repositorio Principal](https://github.com/TheYinYan/Proyecto_Intermodular)
-- 🎨 **Ver Explicación y Primeros pasos del diseño** → [Pagina Diesño](https://github.com/TheYinYan/Proyecto_Intermodular/blob/main/page/Diseño.md)
+- 📁 **[Explicación detallada del Proyecto](https://github.com/TheYinYan/Proyecto_Intermodular)**
+- 🎨 **[Ver Explicación y Primeros pasos del diseño](https://github.com/TheYinYan/Proyecto_Intermodular/blob/main/page/Diseño.md)**
 
 ---
 
@@ -71,7 +71,7 @@ Este repositorio contiene **solo el frontend web**. El backend (API REST) está 
 
 ## 🛠️ Tecnologías
 
-- **Framework:** Angular 17+.
+- **Framework:** Angular 19+.
 - **Lenguaje:** TypeScript.
 - **Estilos:** CSS / SCSS.
 - **Comunicación con backend:** HttpClient de Angular.
@@ -79,7 +79,7 @@ Este repositorio contiene **solo el frontend web**. El backend (API REST) está 
 
 ---
 
-<!-- ## 🚀 Cómo ejecutar el proyecto
+## 🚀 Cómo ejecutar el proyecto
 
 ### Requisitos previos
 - Node.js 18+
@@ -88,12 +88,23 @@ Este repositorio contiene **solo el frontend web**. El backend (API REST) está 
 ### Instalación
 
 ```bash
-# Clonar el repositorio
+# 1. Clonar el repositorio
 git clone https://github.com/TheYinYan/Lookeo-Web.git
 cd Lookeo-Web
 
-# Instalar dependencias
+# 2. Instalar dependencias
 npm install
 
-# Arrancar en modo desarrollo
-ng serve -->
+# 3. Arrancar en modo desarrollo
+ng serve
+``` 
+
+## 📈 Estado del Proyecto (Actualizado)
+
+- [x] Estructura base de Angular configurada.
+- [x] Paleta de colores (Negro, Dorado, Blanco) aplicada.
+- [x] **Conexión con API REST (`Server-Lookeo`) establecida.**
+- [x] **Autenticación (Login) funcional con datos reales y manejo de Token JWT.**
+- [x] **Registro de nuevos usuarios conectado al servidor.**
+- [x] **Paso de datos del usuario (nombre, email) al componente Home.**
+- [ ] Creación de prendas y conexión con el Probador IA (Pendiente).

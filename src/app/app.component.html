@@ -1,10 +1,14 @@
-@if (!this.isRegister) {
-  <app-register (registre)="onRegistered($event)" (goLogin)="onGoToLogin()"></app-register>
-} @else if (!this.isLogged) {
+@if (!isRegistered) {
+  <app-register
+    (register)="onRegistered($event)"
+    (goToLogin)="onGoToLogin()"
+  ></app-register>
+} @else if (!isLogged) {
   <app-login
     (login)="onLogin($event)"
     (goRegister)="onGoToRegister()"
   ></app-login>
 } @else {
-  <app-home></app-home>
+  <app-home [user]="user"></app-home>
 }
+<app-footer></app-footer>

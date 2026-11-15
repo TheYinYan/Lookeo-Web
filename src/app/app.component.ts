@@ -3,32 +3,48 @@ import { RouterOutlet } from '@angular/router';
 import { RegisterComponent } from './pages/auth/register/register.component';
 import { LoginComponent } from './pages/auth/login/login.component';
 import { HomeComponent } from './pages/home/home.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { Users } from './models/users';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, RegisterComponent, LoginComponent, HomeComponent],
+  imports: [
+    RouterOutlet,
+    RegisterComponent,
+    LoginComponent,
+    HomeComponent,
+    FooterComponent,
+  ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
 export class AppComponent {
   title = 'Lookeo-Web';
   isLogged = false;
-  isRegister = false;
+  isRegistered = true;
 
-  onRegistered(event: boolean) {
-    this.isRegister = event;
-    this.isLogged = event;
+  user: Users = {
+    name: '',
+    email: '',
+    password: '',
+  };
+
+  onRegistered(event: Users) {
+    this.user = event;
+    this.isRegistered = true;
+    this.isLogged = true;
   }
 
-  onLogin(event: boolean) {
-    this.isLogged = event;
+  onLogin(event: Users) {
+    this.isLogged = true;
+    this.user = event;
   }
 
   onGoToRegister() {
-    this.isRegister = false;
+    this.isRegistered = false;
   }
 
-  onGoToLogin(){
-    this.isRegister = true;
+  onGoToLogin() {
+    this.isRegistered = true;
   }
 }

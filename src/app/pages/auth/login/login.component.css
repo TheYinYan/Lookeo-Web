@@ -1,19 +1,23 @@
 *{
-   color: white;
+   color: var(--lookeo-white);
 }
 
-header {
-  text-align: center;
-  margin-bottom: 20px;
-  padding-top: 20px;
+.logo-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-header .logo {
-  width: 85px;
-  height: 85px;
-  object-fit: contain;
-  display: block;
-  margin: 0 auto 15px auto;
+.logo-container img {
+  width: 100px;
+  height: 100px;
+}
+
+.email-from label,
+.password-from label {
+  font-family: "Inter", sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
 }
 
 .input-wrapper {
@@ -27,15 +31,42 @@ header .logo {
 .input-wrapper input {
   width: 100%;
   padding: 12px 40px 12px 40px;
-  border: 1px solid #ccc;
+  border: 1px solid var(--lookeo-gray);
+  background-color: var(--lookeo-dark-gray);
+  color: var(--lookeo-white);
   border-radius: 8px;
-  font-size: 14px;
+  font-size: 0.8rem;
   box-sizing: border-box;
+}
+
+.input-wrapper input::placeholder {
+  font-family: "Inter", sans-serif;
+  color: var(--lookeo-gray);
+  opacity: 1;
+}
+
+.input-wrapper input:-webkit-autofill,
+.input-wrapper input:-webkit-autofill:hover,
+.input-wrapper input:-webkit-autofill:focus {
+  -webkit-text-fill-color: var(--lookeo-white);
+  -webkit-box-shadow: 0 0 0 1000px var(--lookeo-dark-gray) inset;
+  box-shadow: 0 0 0 1000px var(--lookeo-dark-gray) inset;
+  caret-color: var(--lookeo-white);
+}
+
+.input-wrapper input {
+  color-scheme: dark;
+}
+
+.input-wrapper input:focus {
+  outline: none;
+  background-color: var(--lookeo-dark-gray);
+  color: var(--lookeo-white);
 }
 
 .alerta {
   color: #ff4d4d;
-  font-size: 0.85rem;
+  font-size: 0.7rem;
   font-weight: 500;
   margin: 4px 0 0 0;
   display: block;
@@ -79,7 +110,7 @@ header .logo {
 form {
   max-width: 500px;
   margin: 20px auto;
-  font-family: sans-serif;
+  font-family: "Inter", sans-serif;
 }
 
 .name-from, .email-from, .password-from {
@@ -98,15 +129,16 @@ label {
 
 button {
   padding: 10px 20px;
-  background-color: #ffc107;
+  background-color: var(--lookeo-gold);
   border: none;
   border-radius: 5px;
   font-weight: bold;
   cursor: pointer;
+  margin: 4px 0 0 0;
 }
 
 button:disabled {
-  background-color: #ccc;
+  background-color: var(--lookeo-gray);
   cursor: not-allowed;
 }
 
@@ -114,7 +146,7 @@ button:disabled {
   display: block;
   text-align: center;
   font-size: 0.9rem;
-  color: #666;
+  color: var(--lookeo-gray);
   margin-bottom: 20px;
 }
 
@@ -130,61 +162,70 @@ button:disabled {
   align-items: center;
   cursor: pointer;
   font-size: 13px;
-  color: #aaa;
+  color: var(--lookeo-gray);
   gap: 10px;
+  margin: 0;
 }
 
 .checkbox-label input[type="checkbox"] {
-  accent-color: #e5b856;
+  accent-color: var(--lookeo-gold);
   width: 16px;
   height: 16px;
   cursor: pointer;
 }
 
+.terms-text {
+  font-weight: 400;
+  color: var(--lookeo-gray);
+
+}
+
 .terms-text a {
-  color: #e5b856;
+  color: var(--lookeo-gold);
   text-decoration: none;
+  font-size: 0.8rem;
+}
+
+.forgot-link{
+    font-size: 0.8rem;
+    color: var(--lookeo-gold);
+    text-align: center;
+    margin: 0;
 }
 
 .btn {
   width: 100%;
   padding: 14px;
-  background-color: #e5b856;
+  background-color: var(--lookeo-gold);
   color: #000;
   border: none;
   border-radius: 6px;
   font-size: 15px;
   font-weight: bold;
   cursor: pointer;
-  margin-top: 10px;
 }
 
 .btn:hover:not(:disabled) {
-  background-color: #fce28b;
+  background-color: var(--lookeo-gold);
 }
 
 .btn:disabled {
-  background-color: #333;
-  color: #666;
+  background-color: var(--lookeo-dark-gray);
+  color: var(--lookeo-gray);
   cursor: not-allowed;
 }
 
 .login-link {
   font-size: 13px;
-  color: #888;
+  color: var(--lookeo-gray);
   text-align: center;
   margin-top: 25px;
 }
 
 .login-link a {
-  color: #e5b856;
+  color: var(--lookeo-gold);
   text-decoration: none;
   font-weight: bold;
 }
 
-.forgot-link{
-    font-size: 13px;
-    color: #e5b856;
-    text-align: center;
-    margin-top: 25px;
-}
+

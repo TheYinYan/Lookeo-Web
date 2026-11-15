@@ -3,23 +3,30 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { Users } from '../../../models/users';
 import { UsersService } from '../../../services/users.service';
+import { AuthService } from '../../../services/auth.service';
+import { Header1Component } from '../../../components/header-1/header-1.component';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-login',
-  imports: [FormsModule, CommonModule],
+  imports: [FormsModule, CommonModule, Header1Component],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css',
 })
 export class LoginComponent {
-  login = output<boolean>();
+  login = output<Users>();
   goRegister = output<boolean>();
 
   showPassword: boolean = false;
   rememberMe: boolean = false;
-  credentialValid: boolean = true;
-  userExists: boolean = true;
 
-  constructor(private usersService: UsersService) {}
+  IsError: boolean = false;
+  nameError: string = '';
+
+  constructor(
+    private readonly usersService: UsersService,
+    private readonly authService: AuthService,
+  ) {}
 
   user: Users = {
     name: '',
@@ -27,15 +34,15 @@ export class LoginComponent {
     password: '',
   };
 
-  onLogin(name: string, email: string, password: string) {
-    this.usersService.getUsers(name,email).subscribe({
-      next: (users: Users[]) => {
-        if (users.length === 0) this.userExists = false;
-        else if (email == users[0]?.email && password == users[0]?.password) {
-          this.userExists = true;
-          this.credentialValid = true;
-          this.login.emit(true);
-        } else this.credentialValid = false, this.userExists = true;
+  onLogin(email: string, password: string) {
+    this.authService.postLogin(this.user).subscribe({
+      next: (newUser: any) => {
+        this.login.emit(newUser.user);
+      },
+      error: (err: HttpErrorResponse) => {
+        this.IsError = true;
+        this.nameError =
+          err.status == 401 ? 'Credenciales inválidas' : 'Error inesperado';
       },
     });
   }

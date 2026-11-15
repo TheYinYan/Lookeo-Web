@@ -3,49 +3,55 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { Users } from '../../../models/users';
 import { UsersService } from '../../../services/users.service';
+import { AuthService } from '../../../services/auth.service';
+import { Header1Component } from '../../../components/header-1/header-1.component';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [FormsModule, CommonModule],
+  imports: [FormsModule, CommonModule, Header1Component],
   templateUrl: './register.component.html',
-  styleUrl: './register.component.css'
+  styleUrl: './register.component.css',
 })
 export class RegisterComponent {
-
-  registre = output<boolean>();
-  goLogin = output<boolean>();
+  register = output<Users>();
+  goToLogin = output<boolean>();
 
   confirmPassword = '';
   showPassword: boolean = false;
   showConfirmPassword: boolean = false;
   termsAccepted: boolean = false;
 
-  constructor(private usersService: UsersService) { }
+  constructor(
+    private readonly usersService: UsersService,
+    private readonly authService: AuthService,
+  ) {}
 
   user: Users = {
     name: '',
     email: '',
-    password: ''
+    password: '',
   };
 
-  userExists: boolean = false;
+  IsError: boolean = false;
+  errorMessage: string = '';
 
   onRegister() {
-    this.usersService.getUsers('', this.user.email).subscribe((users: Users[]) => {
-      this.userExists = users.length > 0;
-      if (this.userExists) {
-        console.log('El usuario ya existe');
-        return;
-      }
-      this.usersService.postUser(this.user).subscribe((newUser: Users) => {
-        this.registre.emit(true);
-      });
+    this.authService.postRegister(this.user).subscribe({
+      next: (newUser: Users) => {
+        this.register.emit(this.user);
+      },
+      error: (err: HttpErrorResponse) => {
+        this.IsError = true;
+        this.errorMessage =
+          err.status === 409 ? 'Email ya registrado' : 'Error inesperado';
+      },
     });
   }
 
   onGoToLogin() {
     console.log('Going to login');
-    this.goLogin.emit(true);
+    this.goToLogin.emit(true);
   }
 }

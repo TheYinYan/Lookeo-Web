@@ -107,4 +107,3 @@ ng serve
 - [x] **Autenticación (Login) funcional con datos reales**
 - [x] **Registro de nuevos usuarios conectado al servidor.**
 - [x] **Paso de datos del usuario (nombre, email) al componente Home.**
-- [ ] Creación de prendas y conexión con el Probador IA (Pendiente).

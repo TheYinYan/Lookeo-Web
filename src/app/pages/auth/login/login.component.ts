@@ -37,6 +37,7 @@ export class LoginComponent {
   onLogin(email: string, password: string) {
     this.authService.postLogin(this.user).subscribe({
       next: (newUser: any) => {
+        console.log(newUser);
         this.login.emit(newUser.user);
       },
       error: (err: HttpErrorResponse) => {

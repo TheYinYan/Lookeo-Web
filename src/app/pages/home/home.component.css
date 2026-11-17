@@ -109,3 +109,22 @@
   background-color: var(--lookeo-gold);
   border: none;
 }
+
+.filtros {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+  padding: 0 2rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.6rem;
+}
+
+.filtros span {
+  color: #9ca3af;
+  font-size: 0.95rem;
+  font-family: "Inter", sans-serif;
+}
+
+.filtros .bold-gold{
+  color: var(--lookeo-gold);
+}

@@ -16,7 +16,7 @@ export class HomeComponent {
   constructor(
     private readonly itemsService: ItemsService,
     private readonly authService: AuthService,
-  ) {}
+  ) { }
 
   items: Item[] = [];
   isLoading = false;
@@ -57,5 +57,9 @@ export class HomeComponent {
         this.isLoading = false;
       },
     });
+  }
+
+  getCountByType(tipo: string): number {
+    return this.items.filter(item => item.type === tipo).length;
   }
 }

@@ -6,6 +6,13 @@
   <span class="bottom-text">Un nuevo día, una forma muy tuya de vestirlo.</span>
 </div>
 
+<div class="filtros">
+  <span class="bold-gold">Todas las prendas ({{ items.length }})</span>
+  <span>Parte superior · {{ getCountByType('Camiseta') + getCountByType('Sudaderas oversize') }}</span>
+  <span>Parte inferior · {{ getCountByType('Parte inferior') }}</span>
+  <span>Calzado · {{ getCountByType('Calzado') }}</span>
+</div>
+
 <div class="prendas">
   @if (isLoading) {
   <p>Cargando prendas...</p>

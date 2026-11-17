@@ -19,9 +19,17 @@
   } @else {
   @for (item of items; track item.id) {
   <div class="cardPrenda">
-    <div class="img" (click)="onClick(item.id)">
-      <img [src]="item.imgUrl[0]" [alt]="item.type">
-      <button class="menu-btn">...</button>
+    <div class="img">
+      <img [src]="item.imgUrl[0]" [alt]="item.type" (click)="onClick(item.id)">
+       <div class="menu-container">
+            <button class="menu-btn" (click)="onOption(item.id)">...</button>
+            @if (openMenuId === item.id) {
+              <div class="dropdown-menu">
+                <button (click)="onClick(item.id)">Editar</button>
+                <button class="delete-btn" (click)="eliminarPrenda(item.id)">Eliminar</button>
+              </div>
+            }
+          </div>
     </div>
 
     <div class="info">

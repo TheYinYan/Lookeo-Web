@@ -83,6 +83,39 @@
   padding-bottom: 10px;
 }
 
+.cardPrenda .dropdown-menu {
+  position: absolute;
+  top: 38px;
+  right: 0;
+  background-color: #2a2a2a;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  min-width: 120px;
+  overflow: hidden;
+}
+
+.cardPrenda .dropdown-menu button {
+  background: transparent;
+  border: none;
+  color: white;
+  padding: 10px 16px;
+  text-align: left;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-family: "Inter", sans-serif;
+  transition: background 0.2s;
+}
+
+.cardPrenda .dropdown-menu button:hover {
+  background-color: #3f3f3f;
+}
+
+.cardPrenda .dropdown-menu button.delete-btn {
+  color: #ff4d4d;
+}
+
 .cardPrenda .info {
   padding: 0.8rem 0 0 0;
   color: white;

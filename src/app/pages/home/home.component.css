@@ -3,7 +3,6 @@
   font-size: 0.8rem;
   color: var(--lookeo-gold);
   margin: 0;
-  text-transform: uppercase
 }
 
 .titulo {
@@ -31,7 +30,7 @@
   padding-left: 2rem;
 }
 
-.prendas{
+.prendas {
   color: white;
   padding-left: 2rem;
 }
@@ -45,4 +44,25 @@
   font-size: 15px;
   cursor: pointer;
   background-color: var(--lookeo-gold);
+}
+
+.cardPrenda {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 18rem;
+  border-radius: 5%;
+}
+
+.cardPrenda img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+}
+
+.cardPrenda span, .color, .style, .season {
+  padding-top: 0.5rem;
+}
+.cardPrenda span{
+  padding-bottom: 1rem;
 }

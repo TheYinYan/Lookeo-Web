@@ -13,8 +13,20 @@
     <p>Cargando prendas...</p>
   } @else {
     @for (item of items; track item.id) {
-      <h1>{{ item.type }}</h1>
-      <span>{{ item.color }}</span>
+      <div class="cardPrenda">
+        <h1>{{ item.type }}</h1>
+        <img src="{{item.imgUrl}}" alt="{{item.type}}">
+        <div class="color">
+          @for (color of item.color; track color) {<span>{{ color }}</span>}
+        </div>
+        <div class="season">
+          @for (season of item.season; track season) {<span>{{season}} </span>}
+        </div>
+        <div class="style">
+          @for (style of item.style; track style) {<span>{{style}} </span>}
+        </div>
+        <span>{{item.notes}}</span>
+      </div>
     } @empty {
       <p>No tienes prendas guardadas.</p>
     }

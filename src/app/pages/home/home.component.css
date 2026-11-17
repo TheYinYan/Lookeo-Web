@@ -43,7 +43,7 @@
   flex-direction: column;
 }
 
-.cardPrenda .img-wrapper {
+.cardPrenda .img {
   position: relative;
   display: flex;
   justify-content: center;

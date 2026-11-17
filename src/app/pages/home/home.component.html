@@ -12,8 +12,8 @@
   } @else {
   @for (item of items; track item.id) {
   <div class="cardPrenda">
-    <div class="img-wrapper">
-      <img [src]="item.imgUrl" [alt]="item.type">
+    <div class="img">
+      <img [src]="item.imgUrl[0]" [alt]="item.type">
       <button class="menu-btn">...</button>
     </div>
 

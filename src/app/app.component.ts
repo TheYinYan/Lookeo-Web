@@ -5,6 +5,7 @@ import { LoginComponent } from './pages/auth/login/login.component';
 import { HomeComponent } from './pages/home/home.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { Users } from './models/users';
+import { AuthService } from './services/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -28,6 +29,15 @@ export class AppComponent {
     email: '',
     password: '',
   };
+
+  constructor(private readonly authService: AuthService) {
+    const session = this.authService.getSession();
+
+    if (session) {
+      this.user = session.user;
+      this.isLogged = true;
+    }
+  }
 
   onRegistered(event: Users) {
     this.user = event;

@@ -1,7 +1,24 @@
 <app-header-2></app-header-2>
 
 <div class="title">
-    <span class="top-text">{{ today | date:'EEEE, d MMMM' }}</span>
-    <h1 class="titulo">Hola {{user().name}}...</h1>
-    <span class="bottom-text">Un nuevo día, una forma muy tuya de vestirlo.</span>
+  <span class="top-text" style="text-transform: uppercase">{{
+    today | date: "EEEE, d MMMM"
+  }}</span>
+  <h1 class="titulo">Hola {{ this.user.name }}...</h1>
+  <span class="bottom-text">Un nuevo día, una forma muy tuya de vestirlo.</span>
 </div>
+
+<div class="prendas">
+  @if (isLoading) {
+    <p>Cargando prendas...</p>
+  } @else {
+    @for (item of items; track item.id) {
+      <h1>{{ item.type }}</h1>
+      <span>{{ item.color }}</span>
+    } @empty {
+      <p>No tienes prendas guardadas.</p>
+    }
+  }
+</div>
+
+<button class="logoutBtn" (click)="logout()">Cerrar sesión</button>

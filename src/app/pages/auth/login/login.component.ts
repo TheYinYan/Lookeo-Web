@@ -6,6 +6,7 @@ import { UsersService } from '../../../services/users.service';
 import { AuthService } from '../../../services/auth.service';
 import { Header1Component } from '../../../components/header-1/header-1.component';
 import { HttpErrorResponse } from '@angular/common/http';
+import { AuthResponse } from '../../../models/auth-response';
 
 @Component({
   selector: 'app-login',
@@ -34,10 +35,11 @@ export class LoginComponent {
     password: '',
   };
 
-  onLogin(email: string, password: string) {
+  onLogin() {
     this.authService.postLogin(this.user).subscribe({
-      next: (newUser: any) => {
-        this.login.emit(newUser.user);
+      next: (response: AuthResponse) => {
+        this.authService.saveSession(response);
+        this.login.emit(response.user);
       },
       error: (err: HttpErrorResponse) => {
         this.IsError = true;

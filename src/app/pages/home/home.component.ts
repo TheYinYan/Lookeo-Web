@@ -4,6 +4,7 @@ import { Users } from '../../models/users';
 import { DatePipe } from '@angular/common';
 import { ItemsService } from '../../services/items.service';
 import { Item } from '../../models/items';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-home',
@@ -12,20 +13,35 @@ import { Item } from '../../models/items';
   styleUrl: './home.component.css',
 })
 export class HomeComponent {
-  constructor(private readonly itemsService: ItemsService) {}
+  constructor(
+    private readonly itemsService: ItemsService,
+    private readonly authService: AuthService,
+  ) {}
 
   items: Item[] = [];
   isLoading = false;
   errorMessage = '';
 
   today = new Date();
-  user = input.required<Users>();
+  user: Users = {
+    name: '',
+    email: '',
+    password: '',
+  };
 
   ngOnInit(): void {
-    this.onItems();
+    this.getItems();
+    const session = this.authService.getSession();
+
+    if (session) this.user = session.user;
   }
 
-  onItems() {
+  logout() {
+    this.authService.logout();
+    window.location.reload();
+  }
+
+  getItems() {
     this.itemsService.getItems().subscribe({
       next: (data) => {
         console.log(data);

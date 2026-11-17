@@ -1,1 +1,40 @@
-<p>wardrobe works!</p>
+<app-header-2></app-header-2>
+
+<div class="title">
+  <span class="top-text">TU COLECCIÓN, A TU MANERA</span>
+  <h1 class="titulo">Mi Ropero</h1>
+  <span class="bottom-text">Todo lo que tienes. Todas las posibilidades que aún no has probado.</span>
+</div>
+
+<div class="filtros">
+  <span class="bold-gold">Todas las prendas ({{ items.length }})</span>
+  <span>Parte superior · {{ getCountByType('Camiseta') + getCountByType('Sudaderas oversize') }}</span>
+  <span>Parte inferior · {{ getCountByType('Parte inferior') }}</span>
+  <span>Calzado · {{ getCountByType('Calzado') }}</span>
+</div>
+
+<div class="prendas">
+  @if (isLoading) {
+  <p>Cargando prendas...</p>
+  } @else {
+  @for (item of items; track item.id) {
+  <div class="cardPrenda">
+    <div class="img">
+      <img [src]="item.imgUrl[0]" [alt]="item.type">
+      <button class="menu-btn">...</button>
+    </div>
+
+    <div class="info">
+      <h3>{{ item.notes || item.type }}</h3>
+      <div class="meta">
+        <span>{{ item.type }} · {{ item.color }}</span>
+      </div>
+    </div>
+  </div>
+  } @empty {
+  <p>No tienes prendas guardadas.</p>
+  }
+  }
+</div>
+
+<button class="logoutBtn" (click)="logout()">Cerrar sesión</button>

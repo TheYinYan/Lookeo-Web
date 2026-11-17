@@ -6,6 +6,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { Users } from './models/users';
 import { AuthService } from './services/auth.service';
+import { WardrobeComponent } from './pages/wardrobe/wardrobe.component';
 
 @Component({
   selector: 'app-root',
@@ -13,9 +14,9 @@ import { AuthService } from './services/auth.service';
     RouterOutlet,
     RegisterComponent,
     LoginComponent,
-    HomeComponent,
     FooterComponent,
-  ],
+    WardrobeComponent
+],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })

@@ -3,7 +3,8 @@
   font-size: 0.8rem;
   color: var(--lookeo-gold);
   margin: 0;
-  text-transform: uppercase
+  text-transform: uppercase;
+  padding-top: 2rem;
 }
 
 .titulo {

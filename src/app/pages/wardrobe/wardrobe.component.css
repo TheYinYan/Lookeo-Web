@@ -63,6 +63,10 @@
   object-fit: cover;
 }
 
+.cardPrenda .img:hover {
+  cursor: pointer;
+}
+
 .cardPrenda .menu-btn {
   position: absolute;
   top: 12px;

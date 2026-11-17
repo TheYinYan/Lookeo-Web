@@ -4,6 +4,7 @@ import { AuthService } from '../../services/auth.service';
 import { ItemsService } from '../../services/items.service';
 import { Item } from '../../models/items';
 import { Users } from '../../models/users';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-wardrobe',
@@ -12,15 +13,12 @@ import { Users } from '../../models/users';
   styleUrl: './wardrobe.component.css'
 })
 export class WardrobeComponent {
-    constructor(
-      private readonly itemsService: ItemsService,
-      private readonly authService: AuthService,
-    ) { }
+    constructor(private readonly itemsService: ItemsService, private readonly authService: AuthService,) { }
 
     items: Item[] = [];
     isLoading = false;
     errorMessage = '';
-
+    IsError: boolean = false;
 
     ngOnInit(): void {
       this.getItems();
@@ -31,6 +29,20 @@ export class WardrobeComponent {
     logout() {
       this.authService.logout();
       window.location.reload();
+    }
+
+    onClick(id:number){
+      this.itemsService.getItem(id).subscribe({
+        next:(item:Item)=>{
+          console.log(item);
+        },
+        error: (err: HttpErrorResponse) => {
+        this.IsError = true;
+        this.errorMessage =
+          err.status === 404 ? 'Prenda no encontrada' : 'Error inesperado';
+        console.log(this.errorMessage);
+      },
+      })
     }
 
     getItems() {

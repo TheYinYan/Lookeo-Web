@@ -1,35 +1,32 @@
 <app-header-2></app-header-2>
 
 <div class="title">
-  <span class="top-text" style="text-transform: uppercase">{{
-    today | date: "EEEE, d MMMM"
-  }}</span>
+  <span class="top-text" style="text-transform: uppercase">{{today | date: "EEEE, d MMMM"}}</span>
   <h1 class="titulo">Hola {{ this.user.name }}...</h1>
   <span class="bottom-text">Un nuevo día, una forma muy tuya de vestirlo.</span>
 </div>
 
 <div class="prendas">
   @if (isLoading) {
-    <p>Cargando prendas...</p>
+  <p>Cargando prendas...</p>
   } @else {
-    @for (item of items; track item.id) {
-      <div class="cardPrenda">
-        <h1>{{ item.type }}</h1>
-        <img src="{{item.imgUrl}}" alt="{{item.type}}">
-        <div class="color">
-          @for (color of item.color; track color) {<span>{{ color }}</span>}
-        </div>
-        <div class="season">
-          @for (season of item.season; track season) {<span>{{season}} </span>}
-        </div>
-        <div class="style">
-          @for (style of item.style; track style) {<span>{{style}} </span>}
-        </div>
-        <span>{{item.notes}}</span>
+  @for (item of items; track item.id) {
+  <div class="cardPrenda">
+    <div class="img-wrapper">
+      <img [src]="item.imgUrl" [alt]="item.type">
+      <button class="menu-btn">...</button>
+    </div>
+
+    <div class="info">
+      <h3>{{ item.notes || item.type }}</h3>
+      <div class="meta">
+        <span>{{ item.type }} · {{ item.color }}</span>
       </div>
-    } @empty {
-      <p>No tienes prendas guardadas.</p>
-    }
+    </div>
+  </div>
+  } @empty {
+  <p>No tienes prendas guardadas.</p>
+  }
   }
 </div>
 

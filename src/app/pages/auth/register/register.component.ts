@@ -6,6 +6,7 @@ import { UsersService } from '../../../services/users.service';
 import { AuthService } from '../../../services/auth.service';
 import { Header1Component } from '../../../components/header-1/header-1.component';
 import { HttpErrorResponse } from '@angular/common/http';
+import { AuthResponse } from '../../../models/auth-response';
 
 @Component({
   selector: 'app-register',
@@ -15,7 +16,7 @@ import { HttpErrorResponse } from '@angular/common/http';
   styleUrl: './register.component.css',
 })
 export class RegisterComponent {
-  register = output<Users>();
+  register = output<boolean>();
   goToLogin = output<boolean>();
 
   confirmPassword = '';
@@ -23,10 +24,7 @@ export class RegisterComponent {
   showConfirmPassword: boolean = false;
   termsAccepted: boolean = false;
 
-  constructor(
-    private readonly usersService: UsersService,
-    private readonly authService: AuthService,
-  ) {}
+  constructor(private readonly authService: AuthService) {}
 
   user: Users = {
     name: '',
@@ -39,8 +37,9 @@ export class RegisterComponent {
 
   onRegister() {
     this.authService.postRegister(this.user).subscribe({
-      next: (newUser: Users) => {
-        this.register.emit(this.user);
+      next:  (response: AuthResponse) => {
+        this.authService.saveSession(response);
+        this.register.emit(true);
       },
       error: (err: HttpErrorResponse) => {
         this.IsError = true;

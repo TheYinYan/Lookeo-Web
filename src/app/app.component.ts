@@ -39,15 +39,13 @@ export class AppComponent {
     }
   }
 
-  onRegistered(event: Users) {
-    this.user = event;
-    this.isRegistered = true;
-    this.isLogged = true;
+  onRegistered(event: boolean) {
+    this.isRegistered = event;
+    this.isLogged = event;
   }
 
-  onLogin(event: Users) {
-    this.isLogged = true;
-    this.user = event;
+  onLogin(event: boolean) {
+    this.isLogged = event;
   }
 
   onGoToRegister() {

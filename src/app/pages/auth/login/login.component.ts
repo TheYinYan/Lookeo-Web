@@ -15,7 +15,7 @@ import { AuthResponse } from '../../../models/auth-response';
   styleUrl: './login.component.css',
 })
 export class LoginComponent {
-  login = output<Users>();
+  login = output<boolean>();
   goRegister = output<boolean>();
 
   showPassword: boolean = false;
@@ -25,7 +25,6 @@ export class LoginComponent {
   nameError: string = '';
 
   constructor(
-    private readonly usersService: UsersService,
     private readonly authService: AuthService,
   ) {}
 
@@ -39,7 +38,7 @@ export class LoginComponent {
     this.authService.postLogin(this.user).subscribe({
       next: (response: AuthResponse) => {
         this.authService.saveSession(response);
-        this.login.emit(response.user);
+        this.login.emit(true);
       },
       error: (err: HttpErrorResponse) => {
         this.IsError = true;

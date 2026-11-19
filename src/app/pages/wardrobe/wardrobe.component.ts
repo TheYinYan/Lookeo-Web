@@ -27,11 +27,6 @@ export class WardrobeComponent {
     console.log(session?.token);
   }
 
-  logout() {
-    this.authService.logout();
-    window.location.reload();
-  }
-
   onClick(id: number) {
     this.itemsService.getItem(id).subscribe({
       next: (item: Item) => {

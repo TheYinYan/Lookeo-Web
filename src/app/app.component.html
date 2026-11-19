@@ -9,6 +9,16 @@
     (goRegister)="onGoToRegister()"
   ></app-login>
 } @else {
-  <app-wardrobe></app-wardrobe>
+  <nav>
+    <a routerLinkActive="activo" routerLink="/home" >Home</a>
+    <a routerLinkActive="activo" routerLink="/favoritos">Favoritos</a>
+    <a routerLinkActive="activo" routerLink="/wardrobe">wardrobe</a>
+    <a routerLinkActive="activo" routerLink="/probador">Probador</a>
+    <a routerLinkActive="activo" routerLink="/outfits">Mis Outfits</a>
+    <a routerLinkActive="activo" routerLink="/profile">profile</a>
+
+  </nav>
+  <hr>
+  <router-outlet />
 }
 <app-footer></app-footer>

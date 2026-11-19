@@ -34,8 +34,5 @@ export class HomeComponent {
     if (session) this.user = session.user;
   }
 
-  logout() {
-    this.authService.logout();
-    window.location.reload();
-  }
+
 }

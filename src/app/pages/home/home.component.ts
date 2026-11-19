@@ -13,10 +13,7 @@ import { AuthService } from '../../services/auth.service';
   styleUrl: './home.component.css',
 })
 export class HomeComponent {
-  constructor(
-    private readonly itemsService: ItemsService,
-    private readonly authService: AuthService,
-  ) {}
+  constructor(private readonly authService: AuthService) { }
 
   items: Item[] = [];
   isLoading = false;
@@ -30,8 +27,9 @@ export class HomeComponent {
   };
 
   ngOnInit(): void {
-    this.getItems();
     const session = this.authService.getSession();
+    console.log(session?.token);
+
 
     if (session) this.user = session.user;
   }
@@ -39,21 +37,5 @@ export class HomeComponent {
   logout() {
     this.authService.logout();
     window.location.reload();
-  }
-
-  getItems() {
-    this.itemsService.getItems().subscribe({
-      next: (data) => {
-        console.log(data);
-
-        this.items = data;
-        this.isLoading = false;
-      },
-      error: (err) => {
-        console.error('Error al cargar las prendas:', err);
-        this.errorMessage = 'No se pudieron cargar tus prendas.';
-        this.isLoading = false;
-      },
-    });
   }
 }

@@ -15,7 +15,7 @@ export class AuthService {
   }
 
   postRegister(user: Users) {
-    return this.http.post<Users>(this.apiUrl + '/register', user);
+    return this.http.post<AuthResponse>(this.apiUrl + '/register', user);
   }
 
   saveSession(response: AuthResponse) {

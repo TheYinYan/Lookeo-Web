@@ -13,6 +13,6 @@ export class ProfileComponent {
 
   logout() {
     this.authService.logout();
-    window.location.reload();
+    window.location.href = '/';
   }
 }

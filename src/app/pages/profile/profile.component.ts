@@ -11,6 +11,8 @@ import { Header2Component } from '../../components/header-2/header-2.component';
 export class ProfileComponent {
   constructor(private readonly authService: AuthService) { }
 
+  islogout = false;
+
   logout() {
     this.authService.logout();
     window.location.href = '/';

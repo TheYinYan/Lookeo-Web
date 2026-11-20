@@ -7,16 +7,12 @@
 }
 
 .top-text {
-  display: block;
   font-size: 0.8rem;
   color: var(--lookeo-gold);
-  margin: 0;
   text-transform: uppercase;
-  padding-top: 2rem;
 }
 
 .titulo {
-  display: block;
   color: var(--lookeo-white);
   font-size: 40px;
   font-weight: 400;
@@ -26,7 +22,6 @@
 }
 
 .bottom-text {
-  display: block;
   font-size: 0.9rem;
   color: var(--lookeo-gray);
   margin-bottom: 20px;
@@ -42,4 +37,95 @@
   cursor: pointer;
   background-color: var(--lookeo-gold);
   border: none;
+}
+
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.78);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.confirm-logout {
+  width: 100%;
+  max-width: 400px;
+  background-color: #161614;
+  border: 1px solid #2c2b27;
+  border-radius: 14px;
+  padding: 24px;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.85);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.logout-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: #1f1e1b;
+  border: 1px solid #2e2c27;
+  color: var(--lookeo-gold);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 14px;
+}
+
+.confirm-logout h2 {
+  color: var(--lookeo-white);
+  font-family: 'Georgia', serif;
+  font-size: 1.4rem;
+  font-weight: 400;
+  margin: 0 0 8px 0;
+}
+
+.confirm-logout p {
+  color: var(--lookeo-gray);
+  font-size: 0.85rem;
+  margin: 0 0 22px 0;
+  line-height: 1.4;
+}
+
+.modal-actions {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.btn-cancel,
+.btn-confirm {
+  width: 100%;
+  padding: 11px 16px;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.btn-cancel {
+  background-color: transparent;
+  color: var(--lookeo-white);
+  border: 1px solid #383630;
+  font-weight: 500;
+}
+
+.btn-cancel:hover {
+  background-color: rgba(255, 255, 255, 0.06);
+}
+
+.btn-confirm {
+  background-color: var(--lookeo-gold);
+  color: #161614;
+  border: none;
+  font-weight: 600;
+}
+
+.btn-confirm:hover {
+  filter: brightness(1.08);
 }

@@ -1,3 +1,6 @@
+@import "tailwindcss";
+@plugin "daisyui";
+
 :root {
   /* Colores corporativos Lookeo */
   --lookeo-black: #000000;

@@ -3,19 +3,19 @@
 <div class="title">
   <span class="top-text">TU ESPACIO PERSONAL</span>
   <h1 class="titulo">Mi perfil</h1>
-  <span class="bottom-text">Tu estilo cambia contigo. Este es tu punto de
-    partida.</span>
+  <span class="bottom-text">Tu estilo cambia contigo. Este es tu punto de partida.</span>
 </div>
-<button class="logoutBtn" (click)="islogout = true">Cerrar sesión</button>
 
-@if (islogout) {
-<div class="modal-backdrop">
+<button class="logoutBtn" (click)="logoutModal.showModal()">
+  Cerrar sesión
+</button>
+
+<dialog #logoutModal class="modal">
   <div class="confirm-logout">
 
     <div class="logout-icon">
-      <svg xmlns="http://w3.org" width="22" height="22" viewBox="0 0 24 24"
-        fill="none" stroke="currentColor" stroke-width="1.8"
-        stroke-linecap="round" stroke-linejoin="round">
+      <svg xmlns="http://w3.org" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+        stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
         <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />
         <polyline points="16 17 21 12 16 7" />
         <line x1="21" y1="12" x2="9" y2="12" />
@@ -25,14 +25,9 @@
     <h2>¿Seguro que quieres cerrar sesión?</h2>
     <p>Tu armario y tus conjuntos seguirán aquí cuando vuelvas.</p>
 
-    <div class="modal-actions">
-      <button type="button" class="btn-cancel" (click)="islogout = false">
-        Cancelar
-      </button>
-      <button type="button" class="btn-confirm" (click)="logout()">
-        Cerrar sesión
-      </button>
-    </div>
+    <form method="dialog" class="modal-actions">
+      <button class="btn-cancel">Cancelar</button>
+      <button class="btn-confirm" (click)="logout()"> Cerrar sesión </button>
+    </form>
   </div>
-</div>
-}
+</dialog>

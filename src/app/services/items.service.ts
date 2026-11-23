@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class ItemsService {
   private http = inject(HttpClient);
-  private apiUrl = 'https://server-lookeo-1n4hbhsyi-theyinyans-projects.vercel.app/api/items';
+  private apiUrl = 'https://server-lookeo.vercel.app/api/items';
 
   private getHeaders(): HttpHeaders {
     const token = localStorage.getItem('token') ?? '';

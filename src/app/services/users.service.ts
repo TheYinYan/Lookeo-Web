@@ -7,7 +7,7 @@ import { Users } from '../models/users';
 })
 export class UsersService {
   private http = inject(HttpClient);
-  private apiUrl = 'http://localhost:3000/api/users';
+  private apiUrl = 'https://server-lookeo-1n4hbhsyi-theyinyans-projects.vercel.app/api/users';
 
   getUsers(name?: string, email?: string, password?: string) {
     let params = new HttpParams();

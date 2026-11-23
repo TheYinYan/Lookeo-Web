@@ -8,7 +8,7 @@ import { AuthResponse } from '../models/auth-response';
 })
 export class AuthService {
   private http = inject(HttpClient);
-  private apiUrl = 'http://localhost:3000/api/auth';
+  private apiUrl = 'https://server-lookeo-1n4hbhsyi-theyinyans-projects.vercel.app/api/auth';
 
   postLogin(user: Users) {
     return this.http.post<AuthResponse>(this.apiUrl + '/login', user);

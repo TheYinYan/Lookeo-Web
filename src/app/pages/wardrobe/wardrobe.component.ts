@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { Header2Component } from '../../components/header-2/header-2.component';
 import { AuthService } from '../../services/auth.service';
 import { ItemsService } from '../../services/items.service';
 import { Item } from '../../models/items';
@@ -8,12 +7,15 @@ import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-wardrobe',
-  imports: [Header2Component],
+  imports: [],
   templateUrl: './wardrobe.component.html',
-  styleUrl: './wardrobe.component.css'
+  styleUrl: './wardrobe.component.css',
 })
 export class WardrobeComponent {
-  constructor(private readonly itemsService: ItemsService, private readonly authService: AuthService,) { }
+  constructor(
+    private readonly itemsService: ItemsService,
+    private readonly authService: AuthService,
+  ) {}
 
   items: Item[] = [];
   isLoading = false;
@@ -36,7 +38,7 @@ export class WardrobeComponent {
         console.error('Prenda no encontrada:', err);
         alert('No se pudo encontrada la prenda');
       },
-    })
+    });
   }
 
   onOption(id: number) {
@@ -53,12 +55,12 @@ export class WardrobeComponent {
         next: () => {
           this.openMenuId = null;
           console.log('Prenda eliminada');
-          this.getItems()
+          this.getItems();
         },
         error: (err) => {
           console.error('Error al eliminar:', err);
           alert('No se pudo eliminar la prenda');
-        }
+        },
       });
     }
   }
@@ -80,6 +82,6 @@ export class WardrobeComponent {
   }
 
   getCountByType(tipo: string): number {
-    return this.items.filter(item => item.type === tipo).length;
+    return this.items.filter((item) => item.type === tipo).length;
   }
 }

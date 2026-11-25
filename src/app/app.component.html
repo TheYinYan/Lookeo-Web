@@ -1,16 +1,4 @@
-@if (!isRegistered) {
-  <app-register
-    (register)="onRegistered($event)"
-    (goToLogin)="onGoToLogin()"
-  ></app-register>
-} @else if (!isLogged) {
-  <app-login
-    (login)="onLogin($event)"
-    (goRegister)="onGoToRegister()"
-  ></app-login>
-} @else {
-  <app-header-2></app-header-2>
+<app-header-2></app-header-2>
   <app-nav></app-nav>
   <router-outlet />
-}
 <app-footer></app-footer>

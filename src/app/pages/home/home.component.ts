@@ -27,9 +27,6 @@ export class HomeComponent {
 
   ngOnInit(): void {
     const session = this.authService.getSession();
-    console.log(session?.token);
-
-
     if (session) this.user = session.user;
   }
 

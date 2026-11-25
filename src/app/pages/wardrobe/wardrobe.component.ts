@@ -26,7 +26,6 @@ export class WardrobeComponent {
   ngOnInit(): void {
     this.getItems();
     const session = this.authService.getSession();
-    console.log(session?.token);
   }
 
   onClick(id: number) {

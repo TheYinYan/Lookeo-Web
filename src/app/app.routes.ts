@@ -34,5 +34,5 @@ export const routes: Routes = [
       { path: 'outfits/:id', component: DetailOutfitComponent },
     ],
   },
-  { path: 'profile', component: ProfileComponent },
+  { path: 'profile', component: ProfileComponent, canActivate: [authGuard] },
 ]

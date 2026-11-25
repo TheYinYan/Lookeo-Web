@@ -1,6 +1,12 @@
 @if (authService.getSession()?.token) {
-<app-header-2></app-header-2>
-<app-nav></app-nav>
+  @if (router.url === '/profile') {
+    // Aqui va el header de profile
+    <app-header-2></app-header-2>
+    <app-nav></app-nav>
+  } @else {
+    <app-header-2></app-header-2>
+    <app-nav></app-nav>
+  }
 }
 <router-outlet />
 <app-footer></app-footer>

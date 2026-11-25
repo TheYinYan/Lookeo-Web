@@ -7,17 +7,15 @@ import { AuthService } from '../../../services/auth.service';
 import { Header1Component } from '../../../components/header-1/header-1.component';
 import { HttpErrorResponse } from '@angular/common/http';
 import { AuthResponse } from '../../../models/auth-response';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-login',
-  imports: [FormsModule, CommonModule, Header1Component],
+  imports: [FormsModule, CommonModule, Header1Component, RouterLink],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css',
 })
 export class LoginComponent {
-  login = output<boolean>();
-  goRegister = output<boolean>();
-
   showPassword: boolean = false;
   rememberMe: boolean = false;
 
@@ -38,7 +36,6 @@ export class LoginComponent {
     this.authService.postLogin(this.user).subscribe({
       next: (response: AuthResponse) => {
         this.authService.saveSession(response);
-        this.login.emit(true);
       },
       error: (err: HttpErrorResponse) => {
         this.IsError = true;
@@ -46,9 +43,5 @@ export class LoginComponent {
           err.status == 401 ? 'Credenciales inválidas' : 'Error inesperado';
       },
     });
-  }
-
-  onGoToRegister() {
-    this.goRegister.emit(true);
   }
 }

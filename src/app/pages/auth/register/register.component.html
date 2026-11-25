@@ -201,7 +201,7 @@
         <span class="alerta">{{ this.errorMessage }}</span>
       }
 
-      <button
+      <button routerLink="/home"
         class="btn"
         type="submit"
         [disabled]="
@@ -215,7 +215,7 @@
 
       <div class="login-link">
         ¿Ya tienes cuenta?
-        <a (click)="onGoToLogin()" style="cursor: pointer">Inicia sesión</a>
+        <a routerLink="/login" style="cursor: pointer">Inicia sesión</a>
       </div>
     </form>
   </section>

@@ -98,13 +98,13 @@
     @if (this.IsError) {
       <span class="alerta">{{ this.nameError }}</span>
     }
-    <button class="btn" type="submit" [disabled]="loginForm.invalid">
+    <button routerLink="/home" class="btn" type="submit" [disabled]="loginForm.invalid">
       Iniciar Sesión ->
     </button>
 
     <div class="login-link">
       ¿Aún no tienes cuenta?
-      <a (click)="onGoToRegister()" style="cursor: pointer">Crear cuenta</a>
+      <a routerLink="/register" style="cursor: pointer">Crear cuenta</a>
     </div>
   </form>
 </div>

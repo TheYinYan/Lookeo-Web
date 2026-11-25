@@ -7,6 +7,7 @@ import { NavComponent } from './components/nav/nav.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { Users } from './models/users';
 import { AuthService } from './services/auth.service';
+import { Header1Component } from './components/header-1/header-1.component';
 
 @Component({
   selector: 'app-root',
@@ -15,7 +16,8 @@ import { AuthService } from './services/auth.service';
     Header2Component,
     NavComponent,
     FooterComponent,
-  ],
+    Header1Component
+],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })

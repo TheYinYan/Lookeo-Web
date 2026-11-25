@@ -12,10 +12,8 @@ import { AuthService } from './services/auth.service';
   selector: 'app-root',
   imports: [
     RouterOutlet,
-    RegisterComponent,
     Header2Component,
     NavComponent,
-    LoginComponent,
     FooterComponent,
   ],
   templateUrl: './app.component.html',
@@ -32,7 +30,7 @@ export class AppComponent {
     password: '',
   };
 
-  constructor(private readonly authService: AuthService) {
+  constructor(public readonly authService: AuthService) {
     const session = this.authService.getSession();
 
     if (session) {

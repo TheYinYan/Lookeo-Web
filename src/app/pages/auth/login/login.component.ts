@@ -7,7 +7,7 @@ import { AuthService } from '../../../services/auth.service';
 import { Header1Component } from '../../../components/header-1/header-1.component';
 import { HttpErrorResponse } from '@angular/common/http';
 import { AuthResponse } from '../../../models/auth-response';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -24,6 +24,7 @@ export class LoginComponent {
 
   constructor(
     private readonly authService: AuthService,
+    private readonly router :Router
   ) {}
 
   user: Users = {
@@ -36,6 +37,7 @@ export class LoginComponent {
     this.authService.postLogin(this.user).subscribe({
       next: (response: AuthResponse) => {
         this.authService.saveSession(response);
+        this.router.navigate(['/home'])
       },
       error: (err: HttpErrorResponse) => {
         this.IsError = true;

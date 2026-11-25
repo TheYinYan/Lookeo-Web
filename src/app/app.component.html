@@ -1,4 +1,6 @@
+@if (authService.getSession()?.token) {
 <app-header-2></app-header-2>
-  <app-nav></app-nav>
-  <router-outlet />
+<app-nav></app-nav>
+}
+<router-outlet />
 <app-footer></app-footer>

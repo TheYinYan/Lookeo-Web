@@ -7,7 +7,7 @@ import { AuthService } from '../../../services/auth.service';
 import { Header1Component } from '../../../components/header-1/header-1.component';
 import { HttpErrorResponse } from '@angular/common/http';
 import { AuthResponse } from '../../../models/auth-response';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -22,7 +22,7 @@ export class RegisterComponent {
   showConfirmPassword: boolean = false;
   termsAccepted: boolean = false;
 
-  constructor(private readonly authService: AuthService) {}
+  constructor( private readonly router :Router, private readonly authService: AuthService ) {}
 
   user: Users = {
     name: '',
@@ -37,6 +37,7 @@ export class RegisterComponent {
     this.authService.postRegister(this.user).subscribe({
       next:  (response: AuthResponse) => {
         this.authService.saveSession(response);
+        this.router.navigate(['/home'])
       },
       error: (err: HttpErrorResponse) => {
         this.IsError = true;

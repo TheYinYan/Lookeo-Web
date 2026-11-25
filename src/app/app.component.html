@@ -1,16 +1,14 @@
-@if (!isRegistered) {
-  <app-register
-    (register)="onRegistered($event)"
-    (goToLogin)="onGoToLogin()"
-  ></app-register>
-} @else if (!isLogged) {
-  <app-login
-    (login)="onLogin($event)"
-    (goRegister)="onGoToRegister()"
-  ></app-login>
+@if (authService.getSession()?.token) {
+  @if (router.url === '/profile') {
+    <!-- Aqui va el header de profile -->
+    <app-header-2></app-header-2>
+    <app-nav></app-nav>
+  } @else {
+    <app-header-2></app-header-2>
+    <app-nav></app-nav>
+  }
 } @else {
-  <app-header-2></app-header-2>
-  <app-nav></app-nav>
-  <router-outlet />
+  <app-header-1></app-header-1>
 }
+<router-outlet />
 <app-footer></app-footer>

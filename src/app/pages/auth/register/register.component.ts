@@ -7,24 +7,22 @@ import { AuthService } from '../../../services/auth.service';
 import { Header1Component } from '../../../components/header-1/header-1.component';
 import { HttpErrorResponse } from '@angular/common/http';
 import { AuthResponse } from '../../../models/auth-response';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [FormsModule, CommonModule, Header1Component],
+  imports: [FormsModule, CommonModule, Header1Component, RouterLink],
   templateUrl: './register.component.html',
   styleUrl: './register.component.css',
 })
 export class RegisterComponent {
-  register = output<boolean>();
-  goToLogin = output<boolean>();
-
   confirmPassword = '';
   showPassword: boolean = false;
   showConfirmPassword: boolean = false;
   termsAccepted: boolean = false;
 
-  constructor(private readonly authService: AuthService) {}
+  constructor( private readonly router :Router, private readonly authService: AuthService ) {}
 
   user: Users = {
     name: '',
@@ -39,7 +37,7 @@ export class RegisterComponent {
     this.authService.postRegister(this.user).subscribe({
       next:  (response: AuthResponse) => {
         this.authService.saveSession(response);
-        this.register.emit(true);
+        this.router.navigate(['/home'])
       },
       error: (err: HttpErrorResponse) => {
         this.IsError = true;
@@ -47,10 +45,5 @@ export class RegisterComponent {
           err.status === 409 ? 'Email ya registrado' : 'Error inesperado';
       },
     });
-  }
-
-  onGoToLogin() {
-    console.log('Going to login');
-    this.goToLogin.emit(true);
   }
 }

@@ -1,5 +1,4 @@
 import { Component, input } from '@angular/core';
-import { Header2Component } from '../../components/header-2/header-2.component';
 import { Users } from '../../models/users';
 import { DatePipe } from '@angular/common';
 import { ItemsService } from '../../services/items.service';
@@ -8,7 +7,7 @@ import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-home',
-  imports: [Header2Component, DatePipe],
+  imports: [DatePipe],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
 })

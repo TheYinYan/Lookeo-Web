@@ -1,7 +1,3 @@
-<header>
-  <app-header-1></app-header-1>
-</header>
-
 <div class="container">
   <section class="logo-container">
     <img src="/assets/logo.svg" alt="logo" class="logo" />
@@ -104,7 +100,7 @@
 
     <div class="login-link">
       ¿Aún no tienes cuenta?
-      <a (click)="onGoToRegister()" style="cursor: pointer">Crear cuenta</a>
+      <a routerLink="/register" style="cursor: pointer">Crear cuenta</a>
     </div>
   </form>
 </div>

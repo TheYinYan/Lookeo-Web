@@ -1,0 +1,13 @@
+.activo{
+  color: var(--lookeo-gold);
+}
+
+nav{
+  text-align: center;
+  padding-top: 2rem;
+  padding-bottom: 0.5rem;
+}
+
+nav a{
+  padding-left: 5rem;
+}

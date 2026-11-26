@@ -1,6 +1,7 @@
 @if (authService.getSession()?.token) {
-  @if (router.url === '/profile') {
-    <!-- Aqui va el header de profile -->
+  @if (router.url === '/error') {
+    <!-- Página de error: sin header ni nav -->
+  } @else if (router.url === '/profile') {
     <app-header-2></app-header-2>
     <app-nav></app-nav>
   } @else {

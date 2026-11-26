@@ -11,6 +11,7 @@ import { NewItemComponent } from './pages/items/new-item/new-item.component';
 import { DetailOutfitComponent } from './pages/outfits/detail-outfit/detail-outfit.component';
 import { authGuard } from './pages/auth/guards/authGuard';
 import { guestGuard } from './pages/auth/guards/guestGuard';
+import { ErrorComponent } from './pages/error/error.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -36,4 +37,6 @@ export const routes: Routes = [
     ],
   },
   { path: 'profile', component: ProfileComponent, canActivate: [authGuard] },
+  { path: 'error', component: ErrorComponent },
+  { path: '**', redirectTo: 'error' }
 ]

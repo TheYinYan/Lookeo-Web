@@ -10,11 +10,12 @@ import { DetailItemComponent } from './pages/items/detail-item/detail-item.compo
 import { NewItemComponent } from './pages/items/new-item/new-item.component';
 import { DetailOutfitComponent } from './pages/outfits/detail-outfit/detail-outfit.component';
 import { authGuard } from './pages/auth/guards/authGuard';
+import { guestGuard } from './pages/auth/guards/guestGuard';
 
 export const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
-  { path: 'login', component: LoginComponent },
-  { path: 'register', component: RegisterComponent },
+  { path: 'login', component: LoginComponent, canActivate: [guestGuard]  },
+  { path: 'register', component: RegisterComponent, canActivate: [guestGuard] },
   { path: 'home', component: HomeComponent, canActivate: [authGuard]  },
   {
     path: 'wardrobe',

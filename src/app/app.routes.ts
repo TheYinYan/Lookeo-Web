@@ -12,6 +12,7 @@ import { DetailOutfitComponent } from './pages/outfits/detail-outfit/detail-outf
 import { authGuard } from './pages/auth/guards/authGuard';
 import { guestGuard } from './pages/auth/guards/guestGuard';
 import { ErrorComponent } from './pages/error/error.component';
+import { ProbadorComponent } from './pages/probador/probador.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -28,6 +29,7 @@ export const routes: Routes = [
     ],
   },
   { path: 'favoritos', component: FavoritesComponent, canActivate: [authGuard] },
+  { path: 'probador', component: ProbadorComponent, canActivate: [authGuard] },
   {
     path: 'outfits',
     component: OutfitsComponent, canActivate: [authGuard],
